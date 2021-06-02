@@ -1,3 +1,22 @@
 !!!!!!!!!!!!! BABY STEPS !!!!!!!!!!!!!
 
-(re-norm your libft idiot)
+so
+
+we have to sort numbers from tiniest value to bigest value
+
+we need 2 listes chainées;
+	- one filled with numbers
+	- the other empty but with the size of the other one
+
+start by implementing the possible operations;
+we'll see where we go from there
+
+main gets list info
+	sends it to push_swap
+		((in what format though ?))
+		((subject explicitly says int*))
+push_swap gets numbers
+init struct list with numbers
+
+//this we will do later
+start sorting
