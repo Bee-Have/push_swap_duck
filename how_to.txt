@@ -1,0 +1,3 @@
+!!!!!!!!!!!!! BABY STEPS !!!!!!!!!!!!!
+
+(re-norm your libft idiot)
