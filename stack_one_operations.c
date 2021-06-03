@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_managment.c                                  :+:      :+:    :+:   */
+/*   stack_one_operations.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/02 15:47:51 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/03 15:50:15 by amarini-         ###   ########.fr       */
+/*   Created: 2021/06/03 12:01:40 by amarini-          #+#    #+#             */
+/*   Updated: 2021/06/03 15:42:28 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*init_stack(int *list, int len)
+void	swap(t_list **list)
 {
-	t_list	*stack;
 	t_list	*iterator;
-	int		i;
+	int		tmp;
 
-	i = len;
-	if (!list)
-		stack = ft_lstnew(0);
-	else
-		stack = ft_lstnew(ft_itoa(&list[i]));
-	i--;
-	iterator = stack;
-	while (i >= 0)
-	{
-		if (!list)
-			iterator->next = ft_lstnew(0);
-		else
-			iterator->next = ft_lstnew(ft_itoa(list[i]));
+	iterator = (*list);
+	while (iterator->next->next != NULL)
 		iterator = iterator->next;
-		i--;
-	}
-	return (stack);
+	tmp = iterator->value;
+	iterator->value = iterator->next->value;
+	iterator->next->value = tmp;
+	return ;
+}
+
+void	push(t_list **a, t_list **b)
+{
+	
 }

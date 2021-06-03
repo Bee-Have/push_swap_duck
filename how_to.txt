@@ -20,3 +20,33 @@ init struct list with numbers
 
 //this we will do later
 start sorting
+
+-----------------------------------------
+
+stack A operations = sa pa ra rra
+stack B operations = sb pb rb rrb
+stacks operations = ss rr rrr
+
+s p rr - ss rr rrr
+
+--
+
+STACK A
+
+S = 
+	switch value of firs two values of the stack
+	ex : tail-1234-head -> tail-2134-head
+P =
+	take first element of A and put it in B
+	ex : a-1234 b-0000 -> a-2340 b-1000
+
+------------------------------------
+
+if i want a specific node
+what is my stop point ?
+do i send the value i'm looking for ?
+i think that would be the easiest way
+
+it's to foggy for us for now...
+let's keep this for later
+we'll probably know exactly how and what we want
