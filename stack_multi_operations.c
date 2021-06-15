@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_one_operations.c                             :+:      :+:    :+:   */
+/*   stack_both_operations.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 12:01:40 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/03 15:42:28 by amarini-         ###   ########.fr       */
+/*   Created: 2021/06/03 15:33:28 by amarini-          #+#    #+#             */
+/*   Updated: 2021/06/15 14:10:26 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list **list)
+void	double_swap(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*iterator;
-	int		tmp;
-
-	iterator = (*list);
-	while (iterator->next->next != NULL)
-		iterator = iterator->next;
-	tmp = iterator->value;
-	iterator->value = iterator->next->value;
-	iterator->next->value = tmp;
-	return ;
-}
-
-void	push(t_list **a, t_list **b)
-{
-	
+	swap(stack_a);
+	swap(stack_b);
 }
