@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/15 14:21:35 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/16 15:51:56 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "libft/libft.h"
+#include "libft.h"
 
 // typedef struct s_list
 // {

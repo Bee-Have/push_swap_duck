@@ -1,3 +1,5 @@
+NAME = push_swap
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -6,34 +8,32 @@ ifdef DEBUG
 CFLAGS += -fsanitize=address -g3
 endif
 
-NAME = push_swap
 LIBFT_DIR = libft/
+OBJS_DIR = Objs
 LIBS = -L$(LIBFT_DIR)
-INCLUDES = -I$(LIBFT_DIR) -Ipush_swap.h
+INCLUDES = -I$(LIBFT_DIR)/Includes -Ipush_swap.h
 SRCS = debug_print.c main.c push_swap.c list_managment.c \
 		stack_managment.c stack_single_operations.c \
 		stack_multi_operations.c
-OBJS = $(SRCS:.c=.o)
+OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 
-all: install $(NAME)
+all: libft/libft.a $(NAME)
 
-.c.o:
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-install:
-	cp $(LIBFT_DIR) && $(MAKE) all
+libft/libft.a:
+	make -C $(LIBFT_DIR) all
 
 $(NAME): $(OBJS)
-	cp $(LIBFT_DIR)/libft.a $(NAME)
-	$(CC) $(CFLAGS) -o $@ $(LIBS) $(INCLUDES)
+	$(CC) $(CFLAGS) $(OBJS) $(INCLUDES) -o $@ $(LIBS) -lft
+
+$(OBJS_DIR)/%.o: %.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f *.o
-	cd libft/ && $(MAKE) clean
+	rm -rf $(OBJS_DIR)
 
 fclean: clean
 	rm -f $(NAME)
-	cd libft/ && $(MAKE) fclean
 
 re: fclean all
 
