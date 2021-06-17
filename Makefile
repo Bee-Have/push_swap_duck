@@ -29,12 +29,15 @@ $(OBJS_DIR)/%.o: %.c
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
+re: fclean all
+
 clean:
 	rm -rf $(OBJS_DIR)
 
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean all
+cleanall: fclean
+	make -C $(LIBFT_DIR) clean
 
-.PHONY : clean fclean re all install
+.PHONY : clean fclean cleanall re all install

@@ -6,13 +6,24 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:14:57 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/16 16:19:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/17 10:45:43 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_list(t_list *stack_a, t_list *stack_b)
+void	print_list(t_list *stack)
+{
+	while (stack)
+	{
+		printf("%d ", stack->content);
+		stack = stack->next;
+	}
+	printf("\n");
+	return ;
+}
+
+void	print_both_lists(t_list *stack_a, t_list *stack_b)
 {
 	while (stack_a)
 	{
