@@ -12,7 +12,7 @@ LIBFT_DIR = libft/
 OBJS_DIR = Objs
 LIBS = -L$(LIBFT_DIR)
 INCLUDES = -I$(LIBFT_DIR)/Includes -Ipush_swap.h
-SRCS = debug_print.c main.c push_swap.c list_managment.c \
+SRCS = debug_print.c main.c list_managment.c \
 		stack_managment.c stack_single_operations.c \
 		stack_multi_operations.c
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))

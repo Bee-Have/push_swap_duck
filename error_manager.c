@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   error_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/02 15:54:58 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/17 14:13:50 by amarini-         ###   ########.fr       */
+/*   Created: 2021/06/17 16:01:55 by amarini-          #+#    #+#             */
+/*   Updated: 2021/06/17 17:15:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	get_infos(int *list, int len)
+void	value_input_error(char *completion)
 {
-	t_list	*a;
-	t_list	*b;
+	char	*generic;
 
-	a = init_stack(list, len);
-	b = NULL;
-
-	print_list(a);
-	// swap(&a);
-	// push(&a, &b);
-	// rotate(&a);
-	reverse_rotate(&a);
-	print_list(a);
+	generic = ft_strdup("It seems to made an error while inputing the list");
 }

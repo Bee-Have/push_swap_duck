@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:14:57 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/17 10:45:43 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/17 15:39:14 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,30 @@
 
 void	print_list(t_list *stack)
 {
+	printf("[");
 	while (stack)
 	{
 		printf("%d ", stack->content);
 		stack = stack->next;
 	}
-	printf("\n");
+	printf("]\n");
 	return ;
 }
 
 void	print_both_lists(t_list *stack_a, t_list *stack_b)
 {
+	printf("[");
 	while (stack_a)
 	{
 		printf("%d ", stack_a->content);
 		stack_a = stack_a->next;
 	}
-	printf("\n");
+	printf("]\n[");
 	while (stack_b)
 	{
 		printf("%d ", stack_b->content);
 		stack_b = stack_b->next;
 	}
-	printf("\n\n");
+	printf("]\n\n");
 	return ;
 }

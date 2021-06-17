@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:47:51 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/17 10:42:04 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/17 17:19:17 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_list	*init_stack(int *list, int len)
 	stack = ft_lstnew(list[0]);
 	i++;
 	iterator = stack;
-	while (i <= len)
+	while (i < len)
 	{
 		iterator->next = ft_lstnew(list[i]);
 		iterator = iterator->next;

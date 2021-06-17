@@ -6,22 +6,23 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:01:40 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/17 14:14:34 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/17 17:16:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list **list)
+void	swap(t_list **stack)
 {
 	t_list	*iterator;
 	int		tmp;
 
-	iterator = (*list);
+	if (!*stack)
+		return ;
+	iterator = (*stack);
 	tmp = iterator->content;
 	iterator->content = iterator->next->content;
 	iterator->next->content = tmp;
-	return ;
 }
 
 void	push(t_list **src, t_list **dst)
