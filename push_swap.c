@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:54:58 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/17 14:03:17 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/17 14:13:50 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	get_infos(int *list, int len)
 	print_list(a);
 	// swap(&a);
 	// push(&a, &b);
-	rotate(&a);
+	// rotate(&a);
+	reverse_rotate(&a);
 	print_list(a);
 }
