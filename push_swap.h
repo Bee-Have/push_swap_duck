@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/16 15:51:56 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/16 16:13:59 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
-
-// typedef struct s_list
-// {
-// 	char			value;
-// 	struct s_list	*next;
-// }				t_list;
 
 t_list	*init_stack(int *list, int len);
 

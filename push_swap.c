@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:54:58 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/15 14:21:46 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/16 16:39:02 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	get_infos(int *list, int len)
 	t_list	*b;
 
 	a = init_stack(list, len);
-	b = init_stack(NULL, len);
+	b = NULL;
 
 	print_list(a, b);
-	// push(&a, &b);
 	// swap(&a);
-	rotate(&a);
+	// push(&a, &b);
+	// rotate(&a);
 	print_list(a, b);
 }
