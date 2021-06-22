@@ -1,0 +1,25 @@
+-------------------------------------------------------
+SORTING ALGORYTHMS
+
+-----
+
+GUIDELINES
+
+for each element in the linked list :
+search for the smallest about of moves possible to do 
+(use a threshold related to the size of the linked list)
+
+to do so :
+use linear probing to see the potential index of the value in list
+compare it to the current index of the value
+generate list of moves to put it at the right index
+take the size of the list
+that's the number of moves;
+
+if : number is too high -> go to the next element of the list;
+else : do the list of actions;
+
+-------------------------------------------------------
+
+ALGORYTHM
+
