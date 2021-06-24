@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:14:57 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/17 15:39:14 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/24 14:55:23 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,40 @@
 
 void	print_list(t_list *stack)
 {
-	printf("[");
+	char	*tmp;
+	
+	write(1, "[", 1);
 	while (stack)
 	{
-		printf("%d ", stack->content);
+		tmp = ft_strdup(ft_itoa(stack->content));
+		write(1, tmp, ft_strlen(tmp));
 		stack = stack->next;
+		free(tmp);
 	}
-	printf("]\n");
+	write(1, "]\n", 2);
 	return ;
 }
 
 void	print_both_lists(t_list *stack_a, t_list *stack_b)
 {
-	printf("[");
+	char	*tmp;
+	
+	write(1, "[", 1);
 	while (stack_a)
 	{
-		printf("%d ", stack_a->content);
+		tmp = ft_strdup(ft_itoa(stack_a->content));
+		write(1, tmp, ft_strlen(tmp));
 		stack_a = stack_a->next;
+		free(tmp);
 	}
-	printf("]\n[");
+	write(1, "][", 2);
 	while (stack_b)
 	{
-		printf("%d ", stack_b->content);
+		tmp = ft_strdup(ft_itoa(stack_b->content));
+		write(1, tmp, ft_strlen(tmp));
 		stack_b = stack_b->next;
+		free(tmp);
 	}
-	printf("]\n\n");
+	write(1, "]\n", 2);
 	return ;
 }

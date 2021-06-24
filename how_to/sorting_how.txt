@@ -6,12 +6,12 @@ SORTING ALGORYTHMS
 GUIDELINES
 
 for each element in the linked list :
-search for the smallest about of moves possible to do 
+search for the smallest amount of moves possible to do 
 (use a threshold related to the size of the linked list)
 
 to do so :
-use linear probing to see the potential index of the value in list
-compare it to the current index of the value
+use linear probing to see the potential index of the node in list
+compare it to the current index of the node
 generate list of moves to put it at the right index
 take the size of the list
 that's the number of moves;
@@ -19,7 +19,73 @@ that's the number of moves;
 if : number is too high -> go to the next element of the list;
 else : do the list of actions;
 
+------------------------------------------------------
+
+0_CHECK FOR SORTED VALUES
+
+go through the list
+for each value in node :
+	- if : (value)%(size of list) = id of node
+		- if node in (head) part :
+			rotate until node is on top
+		- else if node in (tail) :
+			reverse rotate until node is on top
+		- move node to list 'B'
+	- else if : (value)%(size of list) != id of node
+		- switch to next node
+		- repeat
+end
+
+------------------------------------------------------
+
+1_CHECKING MOVES
+
+create int * number of moves for each node by id
+create int for count in list 'A'
+create int for count in list 'B'
+for each node :
+check if the node is in the (head) or (tail)
+	- if node is in (head)
+		-count number of rotate needed to be at (head)
+	- if node in (tail)
+		count number of reverse rotate needed to be at (head)
+look for lesser value node in list 'B'
+	- if node is in (head)
+		count number of rotate needed to be at (head)
+	- if node is in (tail)
+		count number of rotate needed to be at (head)
+if no lesser value node in list 'B'
+find closest bigger value node in list 'B'
+	- if node in (head) part
+		count number of rotate needed to be at bottom
+	- if node in (tail) part
+		count number of reverse rotate needed to be at bottom
+combine number of moves in list 'A' & number of moves in list 'B'
+put number of total moves in int*
+until number of total moves is under certain threshold, repeat
+if no number under certain threshold, pick the smallest number
+
 -------------------------------------------------------
 
-ALGORYTHM
+2_ALGORYTHM
 
+find an element to sort in list A
+look if node is in the (head) or (tail) part of list A
+	- if first part (head) :
+		rotate until node is on top of list A
+	- else if second part (tail)
+		reverse rotate until node is on top of list A
+look for lesser number in list 'B'
+	if found :
+		if node in (head) part :
+			rotate until node is on top
+		else if node in (tail) part :
+			reverse rotate until node is on top
+	if not found :
+		check for closest bigger value node :
+			if node in (head) :
+				rotate until node is at bottom
+			else if node in (tail) :
+				reverse rotate until node is at bottom
+move number to list 'B'
+repeat
