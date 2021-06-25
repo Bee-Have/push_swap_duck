@@ -53,3 +53,9 @@ we'll probably know exactly how and what we want
 
 
 --------------------------------------------------
+
+first get send the list to a general algorythm manager
+this algo manager will send the list to the : "get_already_sorted_stuff_out()"
+then to the : "check_least_number_of_moves()"
+	which will return the id of the node to deal with
+and finally send that id to the algorythm that will sort it

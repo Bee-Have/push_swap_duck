@@ -6,11 +6,11 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:33:28 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/17 14:28:13 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/25 11:35:42 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	double_swap(t_list **stack_a, t_list **stack_b)
 {

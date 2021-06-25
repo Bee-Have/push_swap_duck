@@ -1,19 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_manager.c                                    :+:      :+:    :+:   */
+/*   algorythm_manager.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/17 16:01:55 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/25 12:16:54 by amarini-         ###   ########.fr       */
+/*   Created: 2021/06/25 11:31:12 by amarini-          #+#    #+#             */
+/*   Updated: 2021/06/25 11:31:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	error_message(void)
-{
-	write(1, "Error\n", 6);
-	return (-1);
-}
+void	algorythm_manager()

@@ -1,21 +1,8 @@
 #include "push_swap.h"
 
-// void	test_list(int *list, int len)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (i <= len)
-// 	{
-// 		printf("[%d]", list[i]);
-// 		i++;
-// 	}
-// 	printf("\n");
-// }
-
 int		main(int ac, char **av)
 {
-	int	*list;
+	long long int	*list;
 	int	iav;
 	int	ilist;
 
@@ -23,20 +10,20 @@ int		main(int ac, char **av)
 		return (0);
 	iav = 1;
 	ilist = 0;
-	list = (int *)malloc((ac - 1) * sizeof(int));
+	list = (long long int *)malloc((ac - 1) * sizeof(long long int));
 	if (!list)
 		return (0);
 	while (iav < ac)
 	{
+		printf("%s\n", av[iav]);
 		list[ilist] = ft_atoi(av[iav]);
+		printf("%lld\n", list[ilist]);
 		iav++;
 		ilist++;
 	}
-	// // test_list(list, ac - 2);
-	// if (check_list(list, ac -2) == -1)
-	// 	free(list);
-	// else
-		get_infos(list, ac - 1);
+	if (check_list(list, ac - 1) == -1)
+		return (0);
+	get_infos((int *)list, ac - 1);
 	return (0);
 }
 
@@ -47,29 +34,26 @@ void	get_infos(int *list, int len)
 
 	a = init_stack(list, len);
 	b = NULL;
-
-	print_both_lists(a, b);
-	push(&a, &b);
 	print_both_lists(a, b);
 }
 
-int	check_list(int *list, int len)
+int	check_list(long long int *list, int len)
 {
 	int	ilist;
 	int	icpy;
-	int	*copy;
+	long long int	*copy;
 
 	ilist = 0;
 	icpy = 0;
 	copy = list;
 	while (ilist < len)
 	{
-		if (list[ilist] < INT_MAX || list[ilist] < INT_MIN)
-			return (-1);
+		if ((int)list[ilist] > INT_MAX || (int)list[ilist] < INT_MIN)
+			return (error_message());
 		while (icpy < len)
 		{
 			if (icpy != ilist && copy[icpy] == list[ilist])
-				return (-1);
+				return (error_message());
 			icpy++;
 		}
 		icpy = 0;

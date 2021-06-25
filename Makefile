@@ -12,9 +12,10 @@ LIBFT_DIR = libft/
 OBJS_DIR = Objs
 LIBS = -L$(LIBFT_DIR)
 INCLUDES = -I$(LIBFT_DIR)/Includes -Ipush_swap.h
-SRCS = debug_print.c main.c list_managment.c \
-		stack_managment.c stack_single_operations.c \
-		stack_multi_operations.c
+SRCS = debug_print.c \
+		init.c list_managment.c stack_managment.c error_manager.c \
+		actions/stack_multi_operations.c actions/stack_single_operations.c \
+		
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 
 all: libft/libft.a $(NAME)
@@ -31,6 +32,8 @@ $(OBJS_DIR)/%.o: %.c
 
 re: fclean all
 
+allre: cleanall all
+
 clean:
 	rm -rf $(OBJS_DIR)
 
@@ -40,4 +43,4 @@ fclean: clean
 cleanall: fclean
 	make -C $(LIBFT_DIR) clean
 
-.PHONY : clean fclean cleanall re all install
+.PHONY : clean fclean cleanall re allre all install
