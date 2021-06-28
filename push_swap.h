@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/28 14:17:08 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/28 16:57:06 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	double_reverse_rotate(t_list **stack_a, t_list **stack_b);
 //STACK ID NODES MONITORING
 int		get_id(t_list *list, int value);
 void	place_id(t_list **list);
-t_list	*get_last(t_list **list);
+int		get_node_value(t_list **list, int id);
+int		lst_len(t_list **list);
 
 //ERRORS
 int		error_message();
