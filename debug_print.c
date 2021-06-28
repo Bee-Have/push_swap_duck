@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:14:57 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/25 12:14:27 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/28 11:34:49 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_list(t_list *stack)
 	char	*tmp;
 	
 	write(1, "[", 1);
-	while (stack)
+	while (stack->next)
 	{
 		tmp = ft_strdup(ft_itoa(stack->content));
 		tmp = ft_strjoin("[", tmp);
@@ -51,6 +51,6 @@ void	print_both_lists(t_list *stack_a, t_list *stack_b)
 		stack_b = stack_b->next;
 		free(tmp);
 	}
-	write(1, "\n", 2);
+	write(1, "\n", 1);
 	return ;
 }

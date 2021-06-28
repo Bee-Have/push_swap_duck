@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/25 14:19:34 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/28 12:13:40 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
-#include "libft.h"
+#include "libft/Includes/libft.h"
 
-t_list	*init_stack(int *list, int len);
+t_list	*init_stack(long long int *list, int len);
 
-void	get_infos(int *list, int len);
+void	get_infos(long long int *list, int len);
 int		check_list(long long int *list, int len);
 
 void	swap(t_list **stack);

@@ -6,13 +6,13 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:47:51 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/25 12:22:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/28 12:13:30 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*init_stack(int *list, int len)
+t_list	*init_stack(long long int *list, int len)
 {
 	t_list	*stack;
 	t_list	*iterator;

@@ -15,19 +15,17 @@ int		main(int ac, char **av)
 		return (0);
 	while (iav < ac)
 	{
-		printf("%s\n", av[iav]);
 		list[ilist] = ft_atoi(av[iav]);
-		printf("%lld\n", list[ilist]);
 		iav++;
 		ilist++;
 	}
 	if (check_list(list, ac - 1) == -1)
 		return (0);
-	get_infos((int *)list, ac - 1);
+	get_infos(list, ac - 1);
 	return (0);
 }
 
-void	get_infos(int *list, int len)
+void	get_infos(long long int *list, int len)
 {
 	t_list	*a;
 	t_list	*b;
@@ -48,7 +46,7 @@ int	check_list(long long int *list, int len)
 	copy = list;
 	while (ilist < len)
 	{
-		if ((int)list[ilist] > INT_MAX || (int)list[ilist] < INT_MIN)
+		if (list[ilist] > INT_MAX || list[ilist] < INT_MIN)
 			return (error_message());
 		while (icpy < len)
 		{
