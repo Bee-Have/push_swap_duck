@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:47:51 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/28 12:13:30 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/28 14:11:54 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list	*init_stack(long long int *list, int len)
 
 	i = 0;
 	stack = ft_lstnew(list[0]);
+	stack->id = i;
 	i++;
 	iterator = stack;
 	while (i < len)
@@ -28,5 +29,6 @@ t_list	*init_stack(long long int *list, int len)
 		iterator = iterator->next;
 		i++;
 	}
+	place_id(&stack);
 	return (stack);
 }

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:01:40 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/25 11:35:32 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/28 12:44:48 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	swap(t_list **stack)
 	iterator = (*stack);
 	tmp = iterator->content;
 	iterator->content = iterator->next->content;
+	(*stack)->id = 0;
+	(*stack)->next->id = 1;
 	iterator->next->content = tmp;
 }
 
@@ -38,6 +40,8 @@ void	push(t_list **src, t_list **dst)
 	}
 	else
 		ft_lstadd_front(dst, tmp_src);
+	place_id(src);
+	place_id(dst);
 }
 
 void	rotate(t_list **stack)
@@ -53,6 +57,7 @@ void	rotate(t_list **stack)
 	last = last->next;
 	*stack = (*stack)->next;
 	last->next = NULL;
+	place_id(stack);
 }
 
 void	reverse_rotate(t_list **stack)
@@ -69,4 +74,5 @@ void	reverse_rotate(t_list **stack)
 	last->next = *stack;
 	*stack = last;
 	before_last->next = NULL;
+	place_id(stack);
 }

@@ -1,31 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_managment.c                                   :+:      :+:    :+:   */
+/*   stack_id_monitoring.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:16:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/17 10:39:09 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/28 14:17:28 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//wtf is this ?
-
-/*int	get_stack_id(t_list *list)
+int	get_id(t_list *list, int value)
 {
 	t_list	*iterator;
-	int		result;
 
 	iterator = list;
-	result = 0;
-	while (iterator->next != NULL)
+	while (iterator->next)
 	{
-		
+		if (iterator->content == value)
+			return (iterator->id);
+		iterator = iterator->next;
 	}
-}*/
+	return (-1);
+}
+
+void	place_id(t_list **list)
+{
+	t_list	*iterator;
+	int		new_id;
+
+	new_id = 0;
+	iterator = *list;
+	iterator->id = new_id;
+	while (iterator)
+	{
+		iterator->id = new_id;
+		iterator = iterator->next;
+		new_id++;
+	}
+}
 
 t_list	*get_last(t_list **list)
 {

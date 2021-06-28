@@ -13,7 +13,7 @@ OBJS_DIR = Objs
 LIBS = -L$(LIBFT_DIR)
 INCLUDES = -I$(LIBFT_DIR)/Includes -Ipush_swap.h
 SRCS = debug_print.c \
-		init.c list_managment.c stack_managment.c error_manager.c \
+		init.c stack_id_monitoring.c stack_managment.c error_manager.c \
 		actions/stack_multi_operations.c actions/stack_single_operations.c \
 		
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
