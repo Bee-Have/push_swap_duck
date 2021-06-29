@@ -6,31 +6,32 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 14:47:20 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/28 19:14:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/29 12:19:35 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-char	**node_moves_index(t_list **stack_a, t_list **stack_b, int id)
+char	node_moves_index(t_list **stack_a, t_list **stack_b, int id)
 {
-	t_list *iterator_b;
+	t_list *iterator;
 	char	**result;
 	char	**moves_a;
 	char	**moves_b;
 	int		id_b;
 	int		i;
 
-	iterator_b = *stack_b;
-	moves_a = stack_moves_register(stack_a, id);
-	while (iterator_b->next && iterator_b->content != get_node_value(stack_a, id))
-		iterator_b = iterator_b->next;
-	id_b = iterator_b->id;
-	moves_b = stack_moves_register(stack_b, id_b);
+	iterator = *stack_b;
+	moves_a = stack_moves_register(stack_a, id, "a");
+	while (iterator->next && iterator->content != get_node_value(stack_a, id))
+		iterator = iterator->next;
+	id_b = iterator->id;
+	moves_b = stack_moves_register(stack_b, id_b, "b");
 	result = check_for_common_moves(moves_a, moves_b);
+	return (result);
 }
 
-char	**stack_moves_register(t_list **stack, int id, char )
+char	**stack_moves_register(t_list **stack, int id, char *s_name)
 {
 	char	*result;
 	char	*move;
@@ -40,12 +41,12 @@ char	**stack_moves_register(t_list **stack, int id, char )
 	i = 0;
 	if (id < (lst_len(stack) / 2))
 	{
-		move = ft_strdup("ra ");
+		move = ft_strjoin("r", s_name);
 		length = (id * ft_strlen(move));
 	}
 	else
 	{
-		move = ft_strdup("rra ");
+		move = ft_strjoin("rr", s_name);
 		length = (lst_len(stack) - id) * ft_strlen(move);
 	}
 	result = (char *)malloc((length + 1) * sizeof(char));
