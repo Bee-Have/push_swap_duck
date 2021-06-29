@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:28:33 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 14:21:43 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:12:52 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 			push(stack_a, stack_b);
 		ft_putstr(actions[i]);
 		i++;
+		//debug
+		print_both_lists(*stack_a, *stack_b);
 	}
 	return ;
 }

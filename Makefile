@@ -8,13 +8,19 @@ ifdef DEBUG
 CFLAGS += -fsanitize=address -g3
 endif
 
-LIBFT_DIR = libft/
+LIBFT_DIR = Libs/libft/
+INC_DIR = ./Includes/push_swap
 OBJS_DIR = Objs
+SRCS_DIR = $(shell find Srcs -type d)
 LIBS = -L$(LIBFT_DIR)
-INCLUDES = -I$(LIBFT_DIR)/Includes -Ipush_swap.h
-SRCS = debug_print.c \
-		init.c stack_id_monitoring.c stack_managment.c error_manager.c \
-		actions/stack_multi_operations.c actions/stack_single_operations.c \
+INCLUDES = -I$(LIBFT_DIR)/Includes -I$(INC_DIR)
+
+vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
+
+SRCS = init.c \
+		debug_print.c error_manager.c \
+		stack_id_monitoring.c stack_managment.c \
+		stack_multi_operations.c stack_single_operations.c \
 		algorythm_execute.c algorythm_manager.c algorythm_utils.c
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 

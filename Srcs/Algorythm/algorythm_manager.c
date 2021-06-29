@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 11:31:12 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 14:21:49 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:37:30 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 void	algorythm_manager(t_list **stack_a, t_list **stack_b)
 {
+	t_list	*iterator;
 	int		best_id;
-	int		i;
 	char	**actions;
 	char	**final;
 
 	best_id = 0;
-	while (i < lst_len(stack_a))
+	iterator = *stack_a;
+	final = NULL;
+	while (iterator->next)
 	{
-		final = ft_strjoin_2d(final, "pa");
-		i++;
+		final = ft_add_tab(final, "ra");
+		iterator = iterator->next;
 	}
 	//check list for values that are already sorted
 	
@@ -54,8 +56,8 @@ char	**check_moves_amount(t_list **stack_a, t_list **stack_b, int *best_id)
 	iterator = *stack_a;
 	while (iterator->next)
 	{
-		actions = node_actions_index(stack_a, stack_b, iterator->id);
-		if (ft_strlen_2d(actions) < ideal)
+		actions = node_moves_index(stack_a, stack_b, iterator->id);
+		if (ft_strlen_2d((const char **)actions) < ideal)
 		{
 			(*best_id) = iterator->id;
 			return (actions);

@@ -32,9 +32,9 @@ void	get_infos(long long int *list, int len)
 
 	a = init_stack(list, len);
 	b = NULL;
-	push(&a, &b);
-	print_both_lists(a, b);
-	print_both_id(a, b);
+	algorythm_manager(&a, &b);
+	// print_both_lists(a, b);
+	// print_both_id(a, b);
 }
 
 int	check_list(long long int *list, int len)
