@@ -6,13 +6,13 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 14:47:20 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 12:19:35 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/29 14:21:54 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../Includes/push_swap.h"
 
-char	node_moves_index(t_list **stack_a, t_list **stack_b, int id)
+char	**node_moves_index(t_list **stack_a, t_list **stack_b, int id)
 {
 	t_list *iterator;
 	char	**result;
@@ -23,6 +23,7 @@ char	node_moves_index(t_list **stack_a, t_list **stack_b, int id)
 
 	iterator = *stack_b;
 	moves_a = stack_moves_register(stack_a, id, "a");
+	moves_a = ft_strjoin_2d(stack_a, "pb");
 	while (iterator->next && iterator->content != get_node_value(stack_a, id))
 		iterator = iterator->next;
 	id_b = iterator->id;

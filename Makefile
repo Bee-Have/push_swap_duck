@@ -15,7 +15,7 @@ INCLUDES = -I$(LIBFT_DIR)/Includes -Ipush_swap.h
 SRCS = debug_print.c \
 		init.c stack_id_monitoring.c stack_managment.c error_manager.c \
 		actions/stack_multi_operations.c actions/stack_single_operations.c \
-		
+		algorythm_execute.c algorythm_manager.c algorythm_utils.c
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 
 all: libft/libft.a $(NAME)

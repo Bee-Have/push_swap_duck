@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorythm_execute.c                                :+:      :+:    :+:   */
+/*   stack_multi_operations.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 12:28:33 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 12:33:47 by amarini-         ###   ########.fr       */
+/*   Created: 2021/06/03 15:33:28 by amarini-          #+#    #+#             */
+/*   Updated: 2021/06/29 14:21:26 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../Includes/push_swap.h"
 
-void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
+void	double_swap(t_list **stack_a, t_list **stack_b)
 {
-	int		i;
+	swap(stack_a);
+	swap(stack_b);
+}
 
-	i = 0;
-	while (actions[i] != NULL)
-	{
-		if (ft_memcmp(actions[i], "rr", ft_strlen(actions[i])) == 0)
-			
-	}
+void	double_rotate(t_list **stack_a, t_list **stack_b)
+{
+	rotate(stack_a);
+	rotate(stack_b);
+}
+
+void	double_reverse_rotate(t_list **stack_a, t_list **stack_b)
+{
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
 }

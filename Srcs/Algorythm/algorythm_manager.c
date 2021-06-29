@@ -6,28 +6,41 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 11:31:12 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 12:29:40 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/29 14:21:49 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../Includes/push_swap.h"
 
 void	algorythm_manager(t_list **stack_a, t_list **stack_b)
 {
 	int		best_id;
+	int		i;
 	char	**actions;
+	char	**final;
 
 	best_id = 0;
+	while (i < lst_len(stack_a))
+	{
+		final = ft_strjoin_2d(final, "pa");
+		i++;
+	}
 	//check list for values that are already sorted
 	
 	//verify number of moves for each number
-	actions = check_moves_amount(stack_a, stack_b, &best_id);
-	if (best_id == -1)
+	while (*stack_a)
 	{
-		printf("bro your algo failed to find perfect number]n");
-		exit(1);
+		actions = check_moves_amount(stack_a, stack_b, &best_id);
+		if (best_id == -1)
+		{
+			printf("bro your algo failed to find the perfect threshold\n");
+			exit(1);
+		}
+		//proceed with algorythm on specific stack node
+		execute_actions(stack_a, stack_b, actions);
 	}
-	//proceed with algorythm on specific stack node
+	execute_actions(stack_a, stack_b, final);
+	return ;
 }
 
 char	**check_moves_amount(t_list **stack_a, t_list **stack_b, int *best_id)
@@ -41,7 +54,7 @@ char	**check_moves_amount(t_list **stack_a, t_list **stack_b, int *best_id)
 	iterator = *stack_a;
 	while (iterator->next)
 	{
-		actions = node_actions_index(stack_a, stack_b, iterator->id)
+		actions = node_actions_index(stack_a, stack_b, iterator->id);
 		if (ft_strlen_2d(actions) < ideal)
 		{
 			(*best_id) = iterator->id;

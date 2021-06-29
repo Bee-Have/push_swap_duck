@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_multi_operations.c                           :+:      :+:    :+:   */
+/*   stack_managment.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 15:33:28 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/25 11:35:42 by amarini-         ###   ########.fr       */
+/*   Created: 2021/06/02 15:47:51 by amarini-          #+#    #+#             */
+/*   Updated: 2021/06/29 14:22:17 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../Includes/push_swap.h"
 
-void	double_swap(t_list **stack_a, t_list **stack_b)
+t_list	*init_stack(long long int *list, int len)
 {
-	swap(stack_a);
-	swap(stack_b);
-}
+	t_list	*stack;
+	t_list	*iterator;
+	int		i;
 
-void	double_rotate(t_list **stack_a, t_list **stack_b)
-{
-	rotate(stack_a);
-	rotate(stack_b);
-}
-
-void	double_reverse_rotate(t_list **stack_a, t_list **stack_b)
-{
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
+	i = 0;
+	stack = ft_lstnew(list[0]);
+	stack->id = i;
+	i++;
+	iterator = stack;
+	while (i < len)
+	{
+		iterator->next = ft_lstnew(list[i]);
+		iterator = iterator->next;
+		i++;
+	}
+	place_id(&stack);
+	return (stack);
 }

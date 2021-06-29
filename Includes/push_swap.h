@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 12:29:21 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/29 14:21:01 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
-#include "libft/Includes/libft.h"
+#include "../Libs/libft/Includes/libft.h"
 
 t_list	*init_stack(long long int *list, int len);
 
@@ -41,6 +41,9 @@ char	**check_moves_amount(t_list **stack_a, t_list **stack_b, int *best_id);
 char	**node_moves_index(t_list **stack_a, t_list **stack_b, int id);
 char	**stack_moves_register(t_list **stack, int id, char *s_name);
 char	**check_for_common_moves(char **moves_a, char **moves_b);
+
+//ALGO EXECUTE
+void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions);
 
 //STACK ID NODES MONITORING
 int		get_id(t_list *list, int value);
