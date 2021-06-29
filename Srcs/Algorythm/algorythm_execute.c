@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:28:33 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 16:12:52 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/29 19:11:52 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,12 @@ void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 		else if (ft_memcmp(actions[i], "pa", ft_strlen(actions[i])) == 0)
 			push(stack_a, stack_b);
 		ft_putstr(actions[i]);
+		write(1, "\n", 1);
 		i++;
 		//debug
 		print_both_lists(*stack_a, *stack_b);
 	}
+	place_id(stack_a);
+	place_id(stack_b);
 	return ;
 }

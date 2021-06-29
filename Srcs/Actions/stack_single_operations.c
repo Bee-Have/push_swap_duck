@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:01:40 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 14:21:38 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/29 18:57:57 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	swap(t_list **stack)
 	iterator->next->content = tmp;
 }
 
-void	push(t_list **src, t_list **dst)
+void	push(t_list **dst, t_list **src)
 {
 	t_list	*tmp_src;
 

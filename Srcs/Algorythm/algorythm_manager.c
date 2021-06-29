@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 11:31:12 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 16:37:30 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/29 19:15:03 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	algorythm_manager(t_list **stack_a, t_list **stack_b)
 		}
 		//proceed with algorythm on specific stack node
 		execute_actions(stack_a, stack_b, actions);
+		// print_both_id(*stack_a, *stack_b);
 	}
 	execute_actions(stack_a, stack_b, final);
 	return ;

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 14:47:20 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 17:31:56 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/06/29 19:22:54 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,24 @@ char	**node_moves_index(t_list **stack_a, t_list **stack_b, int id)
 
 	iterator = *stack_b;
 	result = NULL;
-	moves_a = stack_moves_register(stack_a, id, "a ");
-	ft_print_tab(moves_a);
+	moves_a = NULL;
+	moves_b = NULL;
+	moves_a = stack_moves_register(stack_a, id, "a");
 	moves_a = ft_add_tab(moves_a, "pb");
-	ft_print_tab(moves_a);
-	while (iterator && iterator->next
-		&& iterator->content != get_node_value(stack_a, id))
-		iterator = iterator->next;
-	id_b = iterator->id;
-	moves_b = stack_moves_register(stack_b, id_b, "b ");
+	if (!(*stack_b))
+	{
+		printf("HELL NAH\n");
+		moves_b = ft_make_tab(NULL);
+		id_b = 0;
+	}
+	else
+	{
+		while (stack_b && iterator->next
+			&& iterator->content != get_node_value(stack_a, id))
+			iterator = iterator->next;
+		id_b = iterator->id;
+		moves_b = stack_moves_register(stack_b, id_b, "b");
+	}
 	result = check_for_common_moves(moves_a, moves_b);
 	return (result);
 }
@@ -53,17 +62,17 @@ char	**stack_moves_register(t_list **stack, int id, char *s_name)
 		moves = ft_strjoin("rr", s_name);
 		length = (lst_len(stack) - id) * ft_strlen(moves);
 	}
+	moves = ft_strjoin(moves, " ");
 	result = (char *)malloc((length + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
 	result[length] = '\0';
-	printf("len-[%d]\n", length);
 	while (i < length)
 	{
 		result = ft_strjoin(result, moves);
 		i++;
 	}
-	if (length == 0)
+	if (!stack && length == 0)
 		return (NULL);
 	return (ft_split(result, ' '));
 }
@@ -78,6 +87,10 @@ char	**check_for_common_moves(char **moves_a, char **moves_b)
 	occurences = 0;
 	i = 0;
 	final = NULL;
+	if (!moves_a[0])
+		return (moves_b);
+	else if (!moves_b[0])
+		return (moves_a);
 	while (ft_strlen(moves_a[0]) == ft_strlen(moves_b[0]))
 		occurences++;
 	if (occurences > 0 && moves_a[0][1] == 'a')
