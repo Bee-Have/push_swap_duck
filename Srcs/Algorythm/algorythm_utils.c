@@ -26,9 +26,10 @@ char	**node_moves_index(t_list **stack_a, t_list **stack_b, int id)
 	moves_b = NULL;
 	moves_a = stack_moves_register(stack_a, id, "a");
 	moves_a = ft_add_tab(moves_a, "pb");
+	// ft_print_tab(moves_a);
 	if (!(*stack_b))
 	{
-		printf("HELL NAH\n");
+		printf("stack_b is empty\n");
 		moves_b = ft_make_tab(NULL);
 		id_b = 0;
 	}
@@ -40,7 +41,9 @@ char	**node_moves_index(t_list **stack_a, t_list **stack_b, int id)
 		id_b = iterator->id;
 		moves_b = stack_moves_register(stack_b, id_b, "b");
 	}
+	// ft_print_tab(moves_b);
 	result = check_for_common_moves(moves_a, moves_b);
+	// ft_print_tab(result);
 	return (result);
 }
 
