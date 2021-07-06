@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorythm_manager.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 11:31:12 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 19:15:03 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/06 20:20:44 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,17 @@ void	algorythm_manager(t_list **stack_a, t_list **stack_b)
 	while (*stack_a)
 	{
 		actions = check_moves_amount(stack_a, stack_b, &best_id);
-		if (best_id == -1)
+		if (best_id == -1 || !actions)
 		{
 			printf("bro your algo failed to find the perfect threshold\n");
 			exit(1);
 		}
 		//proceed with algorythm on specific stack node
+		printf("TEST\n.\n.");
+		ft_print_tab(actions);
+		printf(".\nTEST\n");
 		execute_actions(stack_a, stack_b, actions);
+		free(actions);
 		// print_both_id(*stack_a, *stack_b);
 	}
 	execute_actions(stack_a, stack_b, final);
@@ -65,6 +69,6 @@ char	**check_moves_amount(t_list **stack_a, t_list **stack_b, int *best_id)
 		}
 		iterator = iterator->next;
 	}
-	(*best_id) = -1;
+	*best_id = -1;
 	return (NULL);
 }

@@ -23,6 +23,10 @@ else : do the list of actions;
 
 0_CHECK FOR SORTED VALUES
 
+actually this method wont really work.
+the bigger the list will be, the harder it will be to have already sorted values
+therefore this is not good, we need something better and more general.
+
 go through the list
 for each value in node :
 	- if : (value)%(size of list) = id of node

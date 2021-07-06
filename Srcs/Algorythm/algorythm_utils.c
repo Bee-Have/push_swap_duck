@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorythm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 14:47:20 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 19:22:54 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/06 20:15:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ char	**node_moves_index(t_list **stack_a, t_list **stack_b, int id)
 	int		id_b;
 
 	iterator = *stack_b;
-	result = NULL;
-	moves_a = NULL;
-	moves_b = NULL;
 	moves_a = stack_moves_register(stack_a, id, "a");
 	moves_a = ft_add_tab(moves_a, "pb");
 	// ft_print_tab(moves_a);
@@ -91,10 +88,10 @@ char	**check_for_common_moves(char **moves_a, char **moves_b)
 	i = 0;
 	final = NULL;
 	if (!moves_a[0])
-		return (moves_b);
+		return ( moves_b);
 	else if (!moves_b[0])
 		return (moves_a);
-	while (ft_strlen(moves_a[0]) == ft_strlen(moves_b[0]))
+	while (ft_strlen(moves_a[occurences]) == ft_strlen(moves_b[occurences]))
 		occurences++;
 	if (occurences > 0 && moves_a[0][1] == 'a')
 		moves = ft_strdup("rr");

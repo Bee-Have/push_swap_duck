@@ -17,7 +17,7 @@ void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 	int		i;
 
 	i = 0;
-	while (actions[i] != NULL)
+	while (actions[i])
 	{
 		if (ft_memcmp(actions[i], "rr", ft_strlen(actions[i])) == 0)
 			double_rotate(stack_a, stack_b);
@@ -35,6 +35,7 @@ void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 		write(1, "\n", 1);
 		i++;
 		//debug
+		printf("output of actions:\n");
 		print_both_lists(*stack_a, *stack_b);
 	}
 	place_id(stack_a);
