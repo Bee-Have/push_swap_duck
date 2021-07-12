@@ -21,7 +21,7 @@ SRCS = init.c \
 		debug_print.c error_manager.c \
 		stack_id_monitoring.c stack_managment.c \
 		stack_multi_operations.c stack_single_operations.c \
-		algorythm_execute.c algorythm_manager.c algorythm_pre_sorting.c
+		algorythm_execute.c algorythm_manager.c algorythm_moves_calculator.c
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 
 all: libft/libft.a $(NAME)

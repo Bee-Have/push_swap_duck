@@ -45,8 +45,8 @@ end
 1_CHECKING MOVES
 
 create int * number of moves for each node by id
-create int for count in list 'A'
-create int for count in list 'B'
+create char ** for count in list 'A'
+create char ** for count in list 'B'
 for each node :
 check if the node is in the (head) or (tail)
 	- if node is in (head)
@@ -97,7 +97,53 @@ repeat
 ------------------------------------------------------------------------------------
 
 starting over :
+MOVES CALCULATOR
 
+use id for number of time to 'ra'
+use (size - id) for number of time to 'rra'
+create {char **} for best amount of moves
+
+create {char **} for moves "A"
+for each node in stack "A"
+if node is in head
+	add number of 'ra' needed to put node on top of list
+if node is in tail
+	add number of 'rra' neede to put node on top of list
+if node is on top or if node is alone
+	do nothing
+add 'pb' at the end of char **
+
+create {char **} for moves "B"
+for each node in "B"
+look for lesser node in "B"
+if lesser node in head
+	add number of 'rb' needed to put node on top of list
+if lesser node in tail
+	add number of 'rrb' needed to put node on top of list
+if no lesser node in "B"
+	{char **} is empty
+
+create final {char **} for combined moves
+if first element of {char **} "A" && first element if {char **} "B" are the same
+	count number of same occurences from both list
+for each number of occurences :
+add either 'rr' || 'rrr' to final {char **}
+if {char **} "B" not empty :
+	add {char **} "B" to final {char **}
+add {char **} "A" to final ('pb' needs to be added either way)
+
+if final {char **} size smaller then best about of moves
+|| if no best amount of moves
+	final {char **} become best amount of moves
+repeat until end of list
+
+return best amount of moves;
+execute best amount of moves;
+
+------------------------------------------------------------------------------------
+
+starting over :
+pre-SORTING
 1--
 using linear search, get sorted values out;
 [number] = should be decided depending on the size of the stack

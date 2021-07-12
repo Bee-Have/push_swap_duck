@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/12 15:08:15 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/12 18:44:20 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ void	double_reverse_rotate(t_list **stack_a, t_list **stack_b);
 void	algorythm_manager(t_list **stack_a, t_list **stack_b);
 
 //ALGO PRE_SORTING
-void	pre_sorting_manager(t_list **stack_a, t_list **stack_b);
-int		check_id_placement(t_list **stack, int id, int threshold);
-int		acceptable_sorted_id_threshold(t_list **stack_a);
-char	**transfer_sorted_nodes(t_list **stack_a);
+
+//ALGO MOVE CALCULATOR
+char	**moves_calculator_manager(t_list **stack_a, t_list **stack_b);
+char	**calc_moves_stack(t_list **stack, int id, char *denominator);
+int		get_best_B_id(t_list **stack, int a_value);
+char	**check_common_moves(char **moves_a, char **moves_b);
 
 //ALGO EXECUTE
 void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions);
