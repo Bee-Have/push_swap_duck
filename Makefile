@@ -47,6 +47,6 @@ fclean: clean
 	rm -f $(NAME)
 
 cleanall: fclean
-	make -C $(LIBFT_DIR) clean
+	make -C $(LIBFT_DIR) fclean
 
 .PHONY : clean fclean cleanall re allre all install

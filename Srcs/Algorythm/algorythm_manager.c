@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorythm_manager.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 11:31:12 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/06 20:20:44 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/12 12:37:38 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,12 @@ void	algorythm_manager(t_list **stack_a, t_list **stack_b)
 		actions = check_moves_amount(stack_a, stack_b, &best_id);
 		if (best_id == -1 || !actions)
 		{
+			printf("best_id-[%d]\n", best_id);
+			ft_print_tab(actions);
 			printf("bro your algo failed to find the perfect threshold\n");
 			exit(1);
 		}
 		//proceed with algorythm on specific stack node
-		printf("TEST\n.\n.");
-		ft_print_tab(actions);
-		printf(".\nTEST\n");
 		execute_actions(stack_a, stack_b, actions);
 		free(actions);
 		// print_both_id(*stack_a, *stack_b);
@@ -57,17 +56,24 @@ char	**check_moves_amount(t_list **stack_a, t_list **stack_b, int *best_id)
 	int		ideal;
 	char	**actions;
 
-	ideal = lst_len(stack_a);
+	ideal = lst_len(stack_a) + lst_len(stack_b);
 	iterator = *stack_a;
 	while (iterator->next)
 	{
 		actions = node_moves_index(stack_a, stack_b, iterator->id);
-		if (ft_strlen_2d((const char **)actions) < ideal)
+		// printf("count-[%d]\n", ft_strlen_2d((const char **)actions));
+		// printf("ideal-[%d]\n", ideal);
+		if (ft_strlen_2d((const char **)actions) <= ideal)
 		{
 			(*best_id) = iterator->id;
 			return (actions);
 		}
 		iterator = iterator->next;
+	}
+	if (!iterator->next)
+	{
+		(*best_id) = iterator->id;
+		return (node_moves_index(stack_a, stack_b, iterator->id));
 	}
 	*best_id = -1;
 	return (NULL);

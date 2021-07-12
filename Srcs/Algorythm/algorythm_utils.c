@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorythm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 14:47:20 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/06 20:15:35 by user42           ###   ########.fr       */
+/*   Updated: 2021/07/12 12:25:20 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ char	**node_moves_index(t_list **stack_a, t_list **stack_b, int id)
 	int		id_b;
 
 	iterator = *stack_b;
-	moves_a = stack_moves_register(stack_a, id, "a");
+	// print_list(*stack_a);
+	if (lst_len(stack_a) == 1)
+		moves_a = ft_make_tab("pb");
+	else
+		moves_a = stack_moves_register(stack_a, id, "a");
 	moves_a = ft_add_tab(moves_a, "pb");
 	// ft_print_tab(moves_a);
 	if (!(*stack_b))
@@ -39,8 +43,10 @@ char	**node_moves_index(t_list **stack_a, t_list **stack_b, int id)
 		moves_b = stack_moves_register(stack_b, id_b, "b");
 	}
 	// ft_print_tab(moves_b);
+	// ft_print_tab(moves_a);
 	result = check_for_common_moves(moves_a, moves_b);
-	// ft_print_tab(result);
+	ft_print_tab(result);
+	printf("\n");
 	return (result);
 }
 
@@ -52,12 +58,13 @@ char	**stack_moves_register(t_list **stack, int id, char *s_name)
 	int		i;
 
 	i = 0;
-	if (id < (lst_len(stack) / 2))
+	length = 0;
+	if (id < (lst_len(stack) / 2) && (lst_len(stack) / 2) > 0)
 	{
 		moves = ft_strjoin("r", s_name);
 		length = (id * ft_strlen(moves));
 	}
-	else
+	else if (id > (lst_len(stack) / 2) && (lst_len(stack) / 2) > 0)
 	{
 		moves = ft_strjoin("rr", s_name);
 		length = (lst_len(stack) - id) * ft_strlen(moves);
@@ -88,9 +95,9 @@ char	**check_for_common_moves(char **moves_a, char **moves_b)
 	i = 0;
 	final = NULL;
 	if (!moves_a[0])
-		return ( moves_b);
+		return (ft_tabdup(moves_b));
 	else if (!moves_b[0])
-		return (moves_a);
+		return (ft_tabdup(moves_a));
 	while (ft_strlen(moves_a[occurences]) == ft_strlen(moves_b[occurences]))
 		occurences++;
 	if (occurences > 0 && moves_a[0][1] == 'a')
@@ -104,9 +111,9 @@ char	**check_for_common_moves(char **moves_a, char **moves_b)
 		final = ft_add_tab(final, moves);
 		i++;
 	}
-	if (moves_a)
-		final = ft_strjoin_2d(final, moves_a);
 	if (moves_b)
 		final = ft_strjoin_2d(final, moves_b);
+	if (moves_a)
+		final = ft_strjoin_2d(final, moves_a);
 	return (final);
 }

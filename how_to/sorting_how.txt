@@ -93,3 +93,34 @@ look for lesser number in list 'B'
 				reverse rotate until node is at bottom
 move number to list 'B'
 repeat
+
+------------------------------------------------------------------------------------
+
+starting over :
+
+1--
+using linear search, get sorted values out;
+if value is 5 ids around it's original position 
+	&& there are no sorted values in higher positions then him
+change it to "sorted"
+once list is done reviewing for sorted values :
+	put all sorted values in 'B'
+
+2--
+for each node :
+calculate number of moves to be on top of 'A'
+calculate number of moves to have right place in 'B'
+join moves of 'B' to moves of 'A'
+add "pb" at the end
+if number of total moves is uder threshold (size of list)
+	save moves as : "ideal moves"
+continue to next node
+if next number of moves is under "ideal moves"
+	moves become "ideal moves"
+if number of moves is equal to "ideal moves"
+	keep "ideal moves"
+repeat until best number of moves has been found
+	excute moves
+
+3--
+put everything in list "A"

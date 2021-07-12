@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:16:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 16:26:25 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/12 12:05:34 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	place_id(t_list **list)
 	t_list	*iterator;
 	int		new_id;
 
+	if (!(*list))
+		return ;
 	new_id = 0;
 	iterator = *list;
 	iterator->id = new_id;
@@ -56,6 +58,8 @@ int		lst_len(t_list **list)
 {
 	t_list	*iterator;
 
+	if (!(*list))
+		return (0);
 	iterator = *list;
 	while (iterator->next)
 		iterator = iterator->next;

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:01:40 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 18:57:57 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/12 12:23:08 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,17 @@ void	push(t_list **dst, t_list **src)
 	t_list	*tmp_src;
 
 	tmp_src = *src;
-	*src = (*src)->next;
+	if (!*src)
+		return ;
+	if (!(*src)->next)
+		*src = NULL;
+	else
+		*src = (*src)->next;
+	// print_both_lists((*dst), (*src));
 	if (!dst)
 	{
-		*dst = tmp_src;
-		(*dst)->next = NULL;
+		(*dst) = ft_lstnew((*src)->content);
+		tmp_src->next = NULL;
 	}
 	else
 		ft_lstadd_front(dst, tmp_src);
@@ -48,7 +54,7 @@ void	rotate(t_list **stack)
 {
 	t_list	*last;
 
-	if (!(*stack)->next)
+	if (!(*stack)->next || !(*stack))
 		return ;
 	last = *stack;
 	while (last->next)
