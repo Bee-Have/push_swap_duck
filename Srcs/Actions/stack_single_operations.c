@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:01:40 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/12 12:23:08 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/12 15:27:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	swap(t_list **stack)
 	if (!*stack)
 		return ;
 	iterator = (*stack);
-	tmp = iterator->content;
-	iterator->content = iterator->next->content;
+	tmp = iterator->value;
+	iterator->value = iterator->next->value;
 	(*stack)->id = 0;
 	(*stack)->next->id = 1;
-	iterator->next->content = tmp;
+	iterator->next->value = tmp;
 }
 
 void	push(t_list **dst, t_list **src)
@@ -41,7 +41,7 @@ void	push(t_list **dst, t_list **src)
 	// print_both_lists((*dst), (*src));
 	if (!dst)
 	{
-		(*dst) = ft_lstnew((*src)->content);
+		(*dst) = ft_lstnew((*src)->value);
 		tmp_src->next = NULL;
 	}
 	else

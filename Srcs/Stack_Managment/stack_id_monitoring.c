@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:16:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/12 12:05:34 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/12 15:27:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	get_id(t_list *list, int value)
 	iterator = list;
 	while (iterator->next)
 	{
-		if (iterator->content == value)
+		if (iterator->value == value)
 			return (iterator->id);
 		iterator = iterator->next;
 	}
@@ -44,14 +44,28 @@ void	place_id(t_list **list)
 	}
 }
 
+int		get_node_sorted_value(t_list **list, int id)
+{
+	t_list	*iterator;
+
+	if (id < 0)
+		return ((*list)->sorted);
+	iterator = *list;
+	while (iterator->next && iterator->id != id)
+		iterator = iterator->next;
+	return (iterator->sorted);
+}
+
 int		get_node_value(t_list **list, int id)
 {
 	t_list	*iterator;
 
 	iterator = *list;
+	if (id < 0)
+		return ((*list)->value);
 	while (iterator->next && iterator->id != id)
 		iterator = iterator->next;
-	return (iterator->content);
+	return (iterator->value);
 }
 
 int		lst_len(t_list **list)

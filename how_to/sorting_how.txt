@@ -100,8 +100,13 @@ starting over :
 
 1--
 using linear search, get sorted values out;
-if value is 5 ids around it's original position 
-	&& there are no sorted values in higher positions then him
+[number] = should be decided depending on the size of the stack
+	<= 10 : [number] = 2
+	<= 100 : [number] = 5
+	<= 1000 : [number] = 10
+	<>= 2000 : [number] = 20
+if value is [number] ids around it's original position 
+	&& there are no sorted values in higher positions and of higher value then him
 change it to "sorted"
 once list is done reviewing for sorted values :
 	put all sorted values in 'B'

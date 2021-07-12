@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:28:33 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/12 12:24:15 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/12 15:11:38 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 	int		i;
 
 	i = 0;
-	ft_print_tab(actions);
 	while (actions[i])
 	{
 		if (ft_memcmp(actions[i], "rr", ft_strlen(actions[i])) == 0)
@@ -32,7 +31,7 @@ void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 			push(stack_b, stack_a);
 		else if (ft_memcmp(actions[i], "pa", ft_strlen(actions[i])) == 0)
 			push(stack_a, stack_b);
-		// ft_putstr(actions[i]);
+		ft_putstr(actions[i]);
 		write(1, "\n", 1);
 		i++;
 		//debug
