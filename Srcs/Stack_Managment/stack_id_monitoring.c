@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:16:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/13 11:34:51 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/13 14:54:56 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	get_id(t_list *list, int value)
 	t_list	*iterator;
 
 	iterator = list;
-	while (iterator->next)
+	while (iterator)
 	{
 		if (iterator->value == value)
 			return (iterator->id);

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 12:44:04 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/13 12:43:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/13 14:54:27 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ char	**moves_calculator_manager(t_list **stack_a, t_list **stack_b)
 		moves_b = calc_moves_stack(stack_b
 				, get_best_B_id(stack_b, iterator->value), "b");
 		moves_a = calc_moves_stack(stack_a, iterator->id, "a");
-		ft_print_tab(moves_a);
-		ft_print_tab(moves_b);
+		// ft_print_tab(moves_a);
+		// ft_print_tab(moves_b);
 		both_moves = check_common_moves(moves_a, moves_b);
 		if (!best_moves || ft_strlen_2d((const char **)both_moves)
 			< ft_strlen_2d((const char **)best_moves))
@@ -37,8 +37,8 @@ char	**moves_calculator_manager(t_list **stack_a, t_list **stack_b)
 		free(moves_b);
 		iterator = iterator->next;
 	}
-	printf("final\n");
-	ft_print_tab(best_moves);
+	// printf("final\n");
+	// ft_print_tab(best_moves);
 	return (best_moves);
 }
 
@@ -55,20 +55,9 @@ char	**calc_moves_stack(t_list **stack, int id, char *denominator)
 		return (ft_make_tab("pb"));
 	length = 0;
 	i = 0;
-	//if node is in head
-	//define number of times to add 'r'
-	//if node is in tail
-	//define number of times to add 'rr'
-	if (id <= (lst_len(stack) / 2))
-	{
-		length = id;
-		move = ft_strjoin("r", denominator);
-	}
-	else if (id >= (lst_len(stack) / 2))
-	{
-		length = lst_len(stack) - id;
-		move = ft_strjoin("rr", denominator);
-	}
+	//if node is in head define number of times to add 'r'
+	//if node is in tail define number of times to add 'rr'
+	length = find_node_pos(stack, &move, denominator, id);
 	//malloc {char **} with defined number
 	result = (char **)malloc((length + 1) * sizeof(char *));
 	if (!result)
@@ -85,7 +74,6 @@ char	**calc_moves_stack(t_list **stack, int id, char *denominator)
 	//if the denominator is 'a', add 'pb'
 	if (ft_strcmp(denominator, "a") == 0)
 		result = ft_add_tab(result, "pb");
-	//return {char **}
 	return (result);
 }
 
@@ -133,7 +121,7 @@ char	**check_common_moves(char **moves_a, char **moves_b)
 	//check if first of both are the same
 	//if not return join of "B"-"A"
 	if (ft_strlen(moves_a[0]) != ft_strlen(moves_b[0]))
-		return (ft_strjoin_2d(moves_b, moves_a));
+		return (ft_tabjoin(moves_b, moves_a));
 	//if the same 'ra'='rb' - set new move to 'rr'
 	//if the same 'rra'='rrb' - set new move to 'rrr'
 	if (ft_strcmp(moves_a[0], "ra") == 0)
@@ -146,7 +134,7 @@ char	**check_common_moves(char **moves_a, char **moves_b)
 		&& ft_strcmp(moves_a[length], "pb") == 1)
 		length++;
 	if (length == 0)
-		return (ft_strjoin_2d(moves_b, moves_a));
+		return (ft_tabjoin(moves_b, moves_a));
 	moves_a = ft_erase(moves_a, 0, length);
 	moves_b = ft_erase(moves_b, 0, length);
 	//malloc new {char **} with final size
@@ -162,7 +150,7 @@ char	**check_common_moves(char **moves_a, char **moves_b)
 		i++;
 	}
 	if (moves_b[0])
-		result = ft_strjoin_2d(result, moves_b);
-	result = ft_strjoin_2d(result, moves_a);
+		result = ft_tabjoin(result, moves_b);
+	result = ft_tabjoin(result, moves_a);
 	return (result);
 }

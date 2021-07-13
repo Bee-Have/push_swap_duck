@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:28:33 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/13 11:46:29 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/13 15:23:28 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@ void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 	int		i;
 
 	i = 0;
-	printf("\nbefore process\n");
-	ft_print_tab(actions);
-	printf("\n");
 	while (actions[i])
 	{
 		if (ft_memcmp(actions[i], "rr", ft_strlen(actions[i])) == 0)
@@ -41,11 +38,8 @@ void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 		ft_putstr(actions[i]);
 		write(1, "\n", 1);
 		i++;
-		//debug
 	}
-	printf("output of actions:\n");
-	print_both_lists(*stack_a, *stack_b);
-	// place_id(stack_a);
-	// place_id(stack_b);
-	return ;
+	//debug
+	// printf("output of actions:\n");
+	// print_both_lists(*stack_a, *stack_b);
 }

@@ -1,0 +1,8 @@
+-------------------------------------------------------
+SORTING ALGORYTHM
+
+-----
+
+GUIDELINES
+
+iterate through stack

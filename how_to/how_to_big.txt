@@ -1,5 +1,11 @@
 !!!!!!!!!!!!! BABY STEPS !!!!!!!!!!!!!
 
+BAREME
+3->2-3 operations
+5->12 operations
+100->700 operations
+500->5500 operations
+
 so
 
 we have to sort numbers from tiniest value to bigest value
