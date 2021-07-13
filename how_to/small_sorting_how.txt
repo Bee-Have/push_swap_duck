@@ -6,3 +6,10 @@ SORTING ALGORYTHM
 GUIDELINES
 
 iterate through stack
+for each node calculate number of moves required to be good
+choose smallest one
+
+doesn't have to switch to "B"
+will have to use swap ? (not sure yet)
+!!!a transfer to "B" implies a transfer to "A" afterward!!!
+
