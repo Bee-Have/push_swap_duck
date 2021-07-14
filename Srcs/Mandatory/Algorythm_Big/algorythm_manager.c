@@ -6,11 +6,11 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 11:31:12 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/13 15:20:53 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/14 11:44:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/push_swap.h"
+#include "../../../Includes/push_swap.h"
 
 void	algorythm_manager(t_list **stack_a, t_list **stack_b)
 {

@@ -6,11 +6,11 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 12:30:29 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/13 14:53:47 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/14 11:44:41 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/push_swap.h"
+#include "../../../Includes/push_swap.h"
 
 int		check_order(t_list **stack)
 {

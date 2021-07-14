@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_multi_operations.c                           :+:      :+:    :+:   */
+/*   algorythm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 15:33:28 by amarini-          #+#    #+#             */
-/*   Updated: 2021/06/29 14:21:26 by amarini-         ###   ########.fr       */
+/*   Created: 2021/07/13 14:01:11 by amarini-          #+#    #+#             */
+/*   Updated: 2021/07/14 11:44:34 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/push_swap.h"
+#include "../../../Includes/push_swap.h"
 
-void	double_swap(t_list **stack_a, t_list **stack_b)
+int		find_node_pos(t_list **stack, char **move, char *denominator, int id)
 {
-	swap(stack_a);
-	swap(stack_b);
-}
+	int		length;
 
-void	double_rotate(t_list **stack_a, t_list **stack_b)
-{
-	rotate(stack_a);
-	rotate(stack_b);
-}
-
-void	double_reverse_rotate(t_list **stack_a, t_list **stack_b)
-{
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
+	length = 0;
+	if (id <= lst_len(stack) / 2)
+	{
+		length = id;
+		(*move) = ft_strjoin("r", denominator);
+	}
+	else if (id > lst_len(stack) / 2)
+	{
+		length = lst_len(stack) - id;
+		(*move) = ft_strjoin("rr", denominator);
+	}
+	return (length);
 }

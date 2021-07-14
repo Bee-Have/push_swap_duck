@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorythm_utils.c                                  :+:      :+:    :+:   */
+/*   error_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/13 14:01:11 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/13 14:23:48 by amarini-         ###   ########.fr       */
+/*   Created: 2021/06/17 16:01:55 by amarini-          #+#    #+#             */
+/*   Updated: 2021/07/14 11:44:31 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Includes/push_swap.h"
+#include "../../../Includes/push_swap.h"
 
-int		find_node_pos(t_list **stack, char **move, char *denominator, int id)
+int	error_message(void)
 {
-	int		length;
-
-	length = 0;
-	if (id <= lst_len(stack) / 2)
-	{
-		length = id;
-		(*move) = ft_strjoin("r", denominator);
-	}
-	else if (id > lst_len(stack) / 2)
-	{
-		length = lst_len(stack) - id;
-		(*move) = ft_strjoin("rr", denominator);
-	}
-	return (length);
+	write(1, "Error\n", 6);
+	return (-1);
 }
