@@ -14,3 +14,4 @@ will have to use swap ? (not sure yet)
 !!!a transfer to "B" implies a transfer to "A" afterward!!!
 
 
+maybe QUICKSORT ?

@@ -32,10 +32,7 @@ void	task_manager(long long int *list, int len)
 
 	a = init_stack(list, len);
 	b = NULL;
-	// print_list(a);
-	algorythm_manager(&a, &b);
-	// print_both_lists(a, b);
-	// print_both_id(a, b);
+	// algorythm_manager(&a, &b);
 }
 
 int	check_list(long long int *list, int len)

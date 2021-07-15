@@ -17,3 +17,21 @@ find smallest value in list
 every other value will be scaled with those two
 (will have to see how it looks)
 (maybe establish a defined gap number)
+
+-------------------------------------------------------------------------
+
+recieve list
+calculate width of values + window
+calculate height of values
+print all values (in "RED" because not stored)
+read from stdin for actions
+
+do we do the actions on tmp list ?
+or just change printing values ?
+wouldn't it be easier to call functions from code ? instead of reading stdin ?
+ex : sa : function sends both stacks to visualiser if "VISUAL" is acivated 
+visualizer just converts both stacks to printing pixels
+
+so
+how do you check value from makefile ?
+instead of checking - can we set vars from makefile ?
