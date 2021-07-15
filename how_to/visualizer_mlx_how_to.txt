@@ -1,0 +1,19 @@
+FIRST
+
+length if list will determine number of pixel per value (width)
+--------
+WIDTH
+number of pixels = size of screen / length if list;
+	-if number of pixels <= 0 : size of window * 2
+	-if size of window supperior to size of screen : size = size of screen
+	-re-calculate number of pixels
+--------
+HEIGHT
+have to established biggest and smallest possible values depending on window
+find biggest value in list
+	biggest becomes height of biggest possible
+find smallest value in list
+	smallest becomes height of smallest possible
+every other value will be scaled with those two
+(will have to see how it looks)
+(maybe establish a defined gap number)

@@ -35,12 +35,12 @@ SRCS = debug_print.c error_manager.c \
 		stack_multi_operations.c stack_single_operations.c \
 		algorythm_execute.c algorythm_manager.c \
 		algorythm_moves_calculator.c algorythm_finish.c algorythm_utils.c
-		#init.c
+		#main.c
 
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 
 ifdef VISUAL
-SRCS_VISU = tests.c
+SRCS_VISU = tests.c mlx_print_manager.c
 OBJS_VISU = $(addprefix $(OBJS_DIR)/,$(SRCS_VISU:.c=.o))
 endif
 

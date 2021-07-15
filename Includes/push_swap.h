@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/15 11:10:00 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/15 18:30:50 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 t_list	*init_stack(long long int *list, int len);
 
-void	get_infos(long long int *list, int len);
+void	task_manager(long long int *list, int len);
 int		check_list(long long int *list, int len);
 
 void	swap(t_list **stack);
@@ -75,5 +75,20 @@ void	print_list(t_list *stack);
 void	print_both_lists(t_list *stack_a, t_list *stack_b);
 void	print_id(t_list *stack);
 void	print_both_id(t_list *stack_a, t_list *stack_b);
+
+//VISUALIZER
+typedef	struct s_data
+{
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+void	my_mlx_pixel_put(t_data *img, int x, int y, int color);
+int		mlx_redraw(t_data *img);
+void	mlx_put_square(t_data *img);
 
 #endif

@@ -21,11 +21,11 @@ int		main(int ac, char **av)
 	}
 	if (check_list(list, ac - 1) == -1)
 		return (0);
-	get_infos(list, ac - 1);
+	task_manager(list, ac - 1);
 	return (0);
 }
 
-void	get_infos(long long int *list, int len)
+void	task_manager(long long int *list, int len)
 {
 	t_list	*a;
 	t_list	*b;

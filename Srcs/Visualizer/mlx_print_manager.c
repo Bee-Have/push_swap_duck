@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests.c                                            :+:      :+:    :+:   */
+/*   mlx_print_manager.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/14 13:46:33 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/15 18:34:03 by amarini-         ###   ########.fr       */
+/*   Created: 2021/07/15 17:15:26 by amarini-          #+#    #+#             */
+/*   Updated: 2021/07/15 18:33:50 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/push_swap.h"
 
-//dimentions : 1920/1080 -> 960/540
-
-int	main(void)
+int		mlx_redraw(t_data *data)
 {
-	t_data	data;
-
-
-	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, 960, 540, "Well hello there General Kenobi!");
-	data.img = mlx_new_image(data.mlx, 960, 540);
-	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel
-								, &data.line_length, &data.endian);
-	// mlx_put_square(&img);
-	mlx_loop_hook(data.mlx, mlx_redraw, &data);
-	// mlx_put_image_to_window(data.mlx, data.win, data.img, 0, 0);
-	mlx_loop(data.mlx);
-}
-
-void	mlx_put_square(t_data *img)
-{
+	//all this will be replaced by all the calculs that i need to print sorting
 	int		width;
 	int		height;
 	int		max;
@@ -43,10 +26,20 @@ void	mlx_put_square(t_data *img)
 	{
 		while (width < max)
 		{
-			my_mlx_pixel_put(img, width, height, 0x00FF0000);
+			my_mlx_pixel_put(data, width, height, 0x00FF0000);
 			width++;
 		}
 		width = 100;
 		height++;
 	}
+	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
+	return (1);
+}
+
+void	my_mlx_pixel_put(t_data *img, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }
