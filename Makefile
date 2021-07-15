@@ -35,36 +35,33 @@ SRCS = debug_print.c error_manager.c \
 		stack_multi_operations.c stack_single_operations.c \
 		algorythm_execute.c algorythm_manager.c \
 		algorythm_moves_calculator.c algorythm_finish.c algorythm_utils.c
-		#init.c \#
-ifdef VISUAL
-SRCS += tests.c 
-endif
+		#init.c
 
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
-#ifdef VISUAL
-#OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o) && $(SRCS_VISU:.c=.o))
-#else
-#OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
-#endif
 
 ifdef VISUAL
-all: libft/libft.a mlx/libmlx.a $(NAME)
+SRCS_VISU = tests.c
+OBJS_VISU = $(addprefix $(OBJS_DIR)/,$(SRCS_VISU:.c=.o))
 endif
 
-all: libft/libft.a $(NAME)
+ifdef VISUAL
+all: Libs/libft/libft.a Libs/mlx/libmlx.a $(NAME)
+endif
 
-mlx/libmlx.a:
+all: Libs/libft/libft.a $(NAME)
+
+Libs/mlx/libmlx.a:
 	make -C $(MLX_DIR) all
 
-libft/libft.a:
+Libs/libft/libft.a:
 	make -C $(LIBFT_DIR) all
 
 ifdef VISUAL
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(INCLUDES) -o $@ $(LIBS) -lft -lmlx
+$(NAME): $(OBJS_VISU) $(OBJS)
+	$(CC) $(CFLAGS) $^ -o $@ $(LIBS) -lft -lmlx -framework OpenGL -framework AppKit
 else
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(INCLUDES) -o $@ $(LIBS) -lft
+	$(CC) $(CFLAGS) $^ -o $@ $(LIBS) -lft
 endif
 
 $(OBJS_DIR)/%.o: %.c
