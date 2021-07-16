@@ -1,45 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_print_manager.c                                :+:      :+:    :+:   */
+/*   visualizer_mlx_print.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:15:26 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/15 18:33:50 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/16 13:34:51 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Includes/push_swap.h"
 
-int		mlx_redraw(t_data *data)
-{
-	//all this will be replaced by all the calculs that i need to print sorting
-	int		width;
-	int		height;
-	int		max;
+void	visualizer_mlx_update(t_data *data, )
 
-	width = 100;
-	height = 100;
-	max = 500;
-	while (height < max)
-	{
-		while (width < max)
-		{
-			my_mlx_pixel_put(data, width, height, 0x00FF0000);
-			width++;
-		}
-		width = 100;
-		height++;
-	}
-	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
-	return (1);
-}
-
-void	my_mlx_pixel_put(t_data *img, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
+//mlx window updater will take mlx data + stack "A" "B" as parameters
+//it will then start to update using loop_hook + loop;
+//then the actions will send stacks and NULL data
+//the data will be used to update everything and will continue to :
+//"turn on itself" util next action

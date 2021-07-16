@@ -32,6 +32,9 @@ void	task_manager(long long int *list, int len)
 
 	a = init_stack(list, len);
 	b = NULL;
+	#if __has_include (<mlx.h>)
+	//call function start visualizer and draw window
+	#endif
 	// algorythm_manager(&a, &b);
 }
 

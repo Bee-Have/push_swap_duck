@@ -24,14 +24,28 @@ recieve list
 calculate width of values + window
 calculate height of values
 print all values (in "RED" because not stored)
-read from stdin for actions
 
-do we do the actions on tmp list ?
-or just change printing values ?
-wouldn't it be easier to call functions from code ? instead of reading stdin ?
-ex : sa : function sends both stacks to visualiser if "VISUAL" is acivated 
-visualizer just converts both stacks to printing pixels
+mlx_string_put : put number of moves on screen
+mlx_get_screen_size : get screen size
 
-so
-how do you check value from makefile ?
-instead of checking - can we set vars from makefile ?
+create your own hook for when list has changed
+if it calls all hooks that were given before, it 
+
+-------------------------------------------------------
+
+PRINTER INIT
+
+first setup the mlx
+then start the loop_hook :
+	loop_hook will repeat as long as there is no events
+
+how no change the default stack printed by loop_hook ?
+can't call visualizer again, that would restart everything.
+have to call something that will change the t_list used
+OR this hook function returns the new stack which will be used by the rest
+but if called by another function how can it change the visu manager stack ?
+OR
+sperate init of mlx and updating of mlx
+then call the updating one everytime you change value
+sounds a little better at least
+i like that solution

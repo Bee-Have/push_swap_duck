@@ -6,16 +6,16 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/15 18:30:50 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/16 11:57:08 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// #ifdef VISUAL
+#if __has_include (<mlx.h>)
 #include <mlx.h>
-// #endif
+#endif
 
 #include <unistd.h>
 #include <stdio.h>
