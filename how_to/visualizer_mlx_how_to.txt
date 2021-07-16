@@ -49,3 +49,23 @@ sperate init of mlx and updating of mlx
 then call the updating one everytime you change value
 sounds a little better at least
 i like that solution
+
+-------------------------------------------------------------
+
+AMOUNT OF PIXELS PER VALUE
+
+WIDTH
+"pxl per value" = width of window / size of list
+if "pxl per value" <= 0:
+	width of window * 2
+	if new width of window > max screen width
+		width of window = max screen width
+repeat
+
+HEIGHT
+biggest stack value = max window height
+smallest stack value = defined min window height
+every time value will be asked for :
+do 'produit en croix' to define window value
+(will see for scalling values)
+
