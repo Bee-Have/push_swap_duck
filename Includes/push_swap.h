@@ -6,15 +6,17 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/16 17:50:51 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/19 20:47:43 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#if __has_include (<mlx.h>)
-#include <mlx.h>
+#if defined __has_include
+#	if __has_include (<mlx.h>)
+#		include <mlx.h>
+#	endif
 #endif
 
 #include <unistd.h>
@@ -87,8 +89,26 @@ typedef	struct s_data
 	int		line_length;
 	int		endian;
 }				t_data;
+typedef	struct s_win_info
+{
+	int		width;
+	int		height;
+	int		pxl_per_value;
+	int		total_pxl;
+}				t_win_info;
+
+//INITS
+void	visualizer_init_manager(t_list **stack);
+int		calc_pxl_per_node(t_list **stack, int *width, int real_width);
+void	mlx_data_init(t_data *data);
+t_win_info	mlx_window_info_init(void);
+
+void	visualizer_mlx_update(t_data *real_data, t_list **stack_a
+							, t_list **stack_b, t_win_info *win_info);
+void	stack_pixel_put(t_data *data, t_list **stack, t_win_info *win_info);
 void	my_mlx_pixel_put(t_data *img, int x, int y, int color);
-int		mlx_redraw(t_data *img);
+// TEST VISUALIZER
 void	mlx_put_square(t_data *img);
+int		mlx_redraw(t_data *img);
 
 #endif

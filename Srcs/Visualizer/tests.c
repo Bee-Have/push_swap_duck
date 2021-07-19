@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 13:46:33 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/16 13:29:01 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/19 14:18:18 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,21 @@ void	my_mlx_pixel_put(t_data *img, int x, int y, int color)
 
 void	mlx_put_square(t_data *img)
 {
-	int		width;
-	int		height;
+	int		x;
+	int		y;
 	int		max;
 
-	width = 100;
-	height = 100;
+	x = 100;
+	y = 100;
 	max = 500;
-	while (height < max)
+	while (y < max)
 	{
-		while (width < max)
+		while (x < max)
 		{
-			my_mlx_pixel_put(img, width, height, 0x00FF0000);
-			width++;
+			my_mlx_pixel_put(img, x, y, 0x00FF0000);
+			x++;
 		}
-		width = 100;
-		height++;
+		x = 100;
+		y++;
 	}
 }

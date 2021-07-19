@@ -35,7 +35,7 @@ void	task_manager(long long int *list, int len)
 	#if __has_include (<mlx.h>)
 	//call function start visualizer and draw window
 	#endif
-	// algorythm_manager(&a, &b);
+	algorythm_manager(&a, &b);
 }
 
 int	check_list(long long int *list, int len)

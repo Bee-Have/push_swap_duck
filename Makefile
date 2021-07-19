@@ -39,7 +39,7 @@ SRCS = debug_print.c error_manager.c \
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 
 ifdef VISUAL
-SRCS_VISU = visualizer_manager.c visualizer_mlx_print.c \
+SRCS_VISU = visualizer_manager.c visualizer_mlx_print.c #\
 			#tests.c
 OBJS_VISU = $(addprefix $(OBJS_DIR)/,$(SRCS_VISU:.c=.o))
 endif

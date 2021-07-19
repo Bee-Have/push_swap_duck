@@ -69,3 +69,42 @@ every time value will be asked for :
 do 'produit en croix' to define window value
 (will see for scalling values)
 
+------------------------------------------------------------
+
+VISUALIZE PROCESS
+
+recieve values of "A" "B" | pixels_per_value | mlx data
+
+will call the drawing function first (like "mlx_put_square()")
+then call "mlx_put_image_to_window()"
+then mlx_loop
+
+draw manager will be called
+draw function will need -> mlx data | pixels per value | "A" "B"
+draw manager will then call drawing function twice ?
+
+DRAWING FUNCTION
+
+drawing function will take 1 stack + data
+(it will be called twice : once of "A" | once for "B")
+
+iterate through node
+	calculate y value
+	while y value > 0
+		calculate x value
+		while i_pxl < pixels_per_value
+			pixel put
+			repeat
+	y--;
+	pxl = 0;
+node = node->next
+
+CALCULATE X 
+
+x is the position it will have on the window;
+so -> (stack id * pixels_per_value) + total pixel drawn in length;
+
+CALCULATE Y
+
+y is the height the value will have in the window
+y = value / height of window

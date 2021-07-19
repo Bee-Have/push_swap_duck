@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:01:40 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/16 12:19:13 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/19 19:51:00 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ void	swap(t_list **stack)
 	(*stack)->id = 0;
 	(*stack)->next->id = 1;
 	iterator->next->value = tmp;
-	#if __has_include (<mlx.h>)
-	//call function to redraw window here
-	#endif
 }
 
 void	push(t_list **dst, t_list **src)
@@ -50,9 +47,6 @@ void	push(t_list **dst, t_list **src)
 		ft_lstadd_front(dst, tmp_src);
 	place_id(src);
 	place_id(dst);
-	#if __has_include (<mlx.h>)
-	//call function to redraw window here
-	#endif
 }
 
 void	rotate(t_list **stack)
@@ -69,9 +63,6 @@ void	rotate(t_list **stack)
 	*stack = (*stack)->next;
 	last->next = NULL;
 	place_id(stack);
-	#if __has_include (<mlx.h>)
-	//call function to redraw window here
-	#endif
 }
 
 void	reverse_rotate(t_list **stack)
@@ -89,7 +80,4 @@ void	reverse_rotate(t_list **stack)
 	*stack = last;
 	before_last->next = NULL;
 	place_id(stack);
-	#if __has_include (<mlx.h>)
-	//call function to redraw window here
-	#endif
 }
