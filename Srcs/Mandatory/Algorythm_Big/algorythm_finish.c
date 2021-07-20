@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 12:30:29 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/14 11:44:41 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/20 16:04:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,7 @@ char	**calc_order_moves(t_list **stack)
 			biggest_id = iterator->value;
 		iterator = iterator->next;
 	}
-	printf("biggest_value-[%d]\n", biggest_id);
 	biggest_id = get_id(*stack, biggest_id);
-	printf("biggest_id-[%d]\n", biggest_id);
 	//if biggest value in head register rb
 	//if biggest value in tail register rrb
 	length = find_node_pos(stack, &move, "b", biggest_id);
@@ -64,8 +62,6 @@ char	**calc_order_moves(t_list **stack)
 		i++;
 	}
 	//return moves
-	printf("final moves for right order : \n");
-	ft_print_tab(final_moves);
 	return (final_moves);
 }
 

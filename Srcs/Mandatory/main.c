@@ -1,5 +1,11 @@
 #include "../../Includes/push_swap.h"
 
+const static int	g_visualizer = 0;
+
+#if defined _MLX_H
+g_visualizer = 1;
+#endif
+
 int		main(int ac, char **av)
 {
 	long long int	*list;
@@ -32,9 +38,8 @@ void	task_manager(long long int *list, int len)
 
 	a = init_stack(list, len);
 	b = NULL;
-	#if __has_include (<mlx.h>)
-	//call function start visualizer and draw window
-	#endif
+	if (g_visualizer == 1)
+		visualizer_init_manager(&a);
 	algorythm_manager(&a, &b);
 }
 
