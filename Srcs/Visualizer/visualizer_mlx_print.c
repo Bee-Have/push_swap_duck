@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:15:26 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/21 12:46:20 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/21 21:30:07 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,29 @@ void	stack_pixel_put(t_data *data, t_list **stack, t_win_info *win_info)
 	int		x;
 	int		y;
 
+	if (!stack)
+		return ;
 	i_pxl = 0;
-	x = 0;
-	y = 0;
 	iterator = *stack;
-	printf("window biggest width -[%d]\n", win_info->width);
 	while (iterator)
 	{
-		y = (win_info->height * iterator->value) / win_info->biggest;
-		printf("value-[%lld]\n", iterator->value);
-		printf("x-[%d]  y-[%d]\n", x, y);
-		while (y >= 0)
+		y = ((win_info->height - 1) * iterator->value) / win_info->smallest;
+		while (y < win_info->height)
 		{
-			x = (iterator->id * win_info->pxl_per_value) + win_info->total_pxl;
-			// printf("x-[%d]  y-[%d]\n", x, y);
-			if (iterator->sorted == 0)
-				my_mlx_pixel_put(data, x, y, 0x00FF0000);
-			else
-				my_mlx_pixel_put(data, x, y, 0x0000FF00);
-			win_info->total_pxl += (x - win_info->total_pxl);
-			y--;
+			// printf("value-[%lld]\n", iterator->value);
+			x = 0;
+			while (x < win_info->pxl_per_value)
+			{
+				printf("x-[%d] y-[%d]\n", x, y);
+				if (iterator->sorted == 0)
+					my_mlx_pixel_put(data, (x + win_info->total_pxl), y, 0x00FF0000);
+				else
+					my_mlx_pixel_put(data, (x + win_info->total_pxl), y, 0x0000FF00);
+				x++;
+			}
+			y++;
 		}
-		// x = 0;
+		win_info->total_pxl += win_info->pxl_per_value;
 		iterator = iterator->next;
 	}
 }
