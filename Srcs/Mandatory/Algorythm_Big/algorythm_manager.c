@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 11:31:12 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/14 11:44:39 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/21 12:14:45 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	algorythm_manager(t_list **stack_a, t_list **stack_b)
 	execute_actions(stack_a, stack_b, moves);
 	if (check_order(stack_a) == 1)
 	{
+		printf("list has not been sorted\n");
 		error_message();
 		return ;
 	}

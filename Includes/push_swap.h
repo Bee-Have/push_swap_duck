@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/20 15:21:51 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/21 12:42:14 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,14 @@ char	**calc_final_moves(t_list **stack);
 int		find_node_pos(t_list **stack, char **move, char *denominator, int id);
 
 //STACK ID NODES MONITORING
-int		get_id(t_list *list, int value);
 void	place_id(t_list **list);
+int		lst_len(t_list **list);
+
+int		get_id(t_list *list, int value);
 int		get_node_sorted_value(t_list **list, int id);
 int		get_node_value(t_list **list, int id);
-int		lst_len(t_list **list);
+int		get_biggest_value(t_list **list);
+int		get_smallest_value(t_list **list);
 
 //ERRORS
 int		error_message();
@@ -95,12 +98,13 @@ typedef	struct s_win_info
 	int		height;
 	int		pxl_per_value;
 	int		total_pxl;
+	int		biggest;
 }				t_win_info;
 
 //INITS
 void	visualizer_init_manager(t_list **stack);
 int		calc_pxl_per_node(t_list **stack, int *width, int real_width);
-void	mlx_data_init(t_data *data);
+void	mlx_data_init(t_data *data, t_win_info *win_info);
 t_win_info	mlx_window_info_init(void);
 
 void	visualizer_mlx_update(t_data *real_data, t_list **stack_a

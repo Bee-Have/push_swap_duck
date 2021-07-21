@@ -1,9 +1,10 @@
 #include "../../Includes/push_swap.h"
 
-const static int	g_visualizer = 0;
 
-#if defined _MLX_H
-g_visualizer = 1;
+#if defined MLX_H
+const static int	g_visualizer = 1;
+#else
+const static int	g_visualizer = 0;
 #endif
 
 int		main(int ac, char **av)
@@ -55,11 +56,17 @@ int	check_list(long long int *list, int len)
 	while (ilist < len)
 	{
 		if (list[ilist] > INT_MAX || list[ilist] < INT_MIN)
+		{
+			printf("bigger then INT_MAX || smaller then INT_MIN\n");
 			return (error_message());
+		}
 		while (icpy < len)
 		{
 			if (icpy != ilist && copy[icpy] == list[ilist])
+			{
+				printf("duplicates in entry\n");
 				return (error_message());
+			}
 			icpy++;
 		}
 		icpy = 0;

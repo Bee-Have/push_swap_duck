@@ -31,7 +31,7 @@ endif
 vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
 
 SRCS = debug_print.c error_manager.c \
-		stack_id_monitoring.c stack_managment.c \
+		stack_search.c stack_length.c stack_managment.c \
 		stack_multi_operations.c stack_single_operations.c \
 		algorythm_execute.c algorythm_manager.c \
 		algorythm_moves_calculator.c algorythm_finish.c algorythm_utils.c \

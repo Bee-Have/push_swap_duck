@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 13:46:33 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/19 14:18:18 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/21 12:25:34 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	main(void)
 	data.img = mlx_new_image(data.mlx, 960, 540);
 	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel
 								, &data.line_length, &data.endian);
-	// mlx_put_square(&img);
-	mlx_loop_hook(data.mlx, mlx_redraw, &data);
-	// mlx_put_image_to_window(data.mlx, data.win, data.img, 0, 0);
+	mlx_put_square(&data);
+	// mlx_loop_hook(data.mlx, mlx_redraw, &data);
+	mlx_put_image_to_window(data.mlx, data.win, data.img, 0, 0);
 	mlx_loop(data.mlx);
 }
 
@@ -52,14 +52,6 @@ int		mlx_redraw(t_data *data)
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img, 0, 0);
 	return (1);
-}
-
-void	my_mlx_pixel_put(t_data *img, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
 }
 
 void	mlx_put_square(t_data *img)

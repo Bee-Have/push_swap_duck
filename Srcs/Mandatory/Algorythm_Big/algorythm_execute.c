@@ -6,16 +6,17 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:28:33 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/20 16:05:17 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/20 16:11:26 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../Includes/push_swap.h"
 
-const static int	g_visualizer = 0;
 
-#if defined _MLX_H
-g_visualizer = 1;
+#if defined MLX_H
+const static int	g_visualizer = 1;
+#else
+const static int	g_visualizer = 0;
 #endif
 
 void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
@@ -45,7 +46,7 @@ void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 		write(1, "\n", 1);
 		if (g_visualizer == 1)
 		{
-			printf("FUCK NO\n");
+			printf("FUCK YES\n");
 			visualizer_mlx_update(NULL, stack_a, stack_b, NULL);
 		}
 		i++;
