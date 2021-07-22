@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 12:11:35 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/22 18:48:40 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/22 18:57:03 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <limits.h>
 #include <mlx.h>
 #include "../Libs/libft_duck/Includes/libft.h"
+#include "../Libs/Lib_get_file/Includes/ft_get_file.h"
 
 typedef	struct s_data
 {

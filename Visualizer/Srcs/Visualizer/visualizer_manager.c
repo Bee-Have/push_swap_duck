@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:18:17 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/22 18:43:21 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/22 19:41:08 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int		calc_pxl_per_node(t_list **stack, int *width, int real_width)
 	int		pxl_per_value;
 
 	length = lst_len(stack);
-	pxl_per_value = *width / length;
+	// printf("length-[%d] width-[%d]\n", length, *width);
+	pxl_per_value = (*width) / length;
 	// printf("pxl_per_value-[%d]\n", pxl_per_value);
 	if (pxl_per_value <= 0 && *width == real_width)
 	{

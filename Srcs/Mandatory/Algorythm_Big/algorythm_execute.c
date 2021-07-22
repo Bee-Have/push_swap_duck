@@ -6,18 +6,11 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:28:33 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/22 11:36:25 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/22 18:59:21 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../Includes/push_swap.h"
-
-
-#if defined MLX_H
-const static int	g_visualizer = 1;
-#else
-const static int	g_visualizer = 0;
-#endif
 
 void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 {
@@ -44,11 +37,6 @@ void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 			push(stack_a, stack_b);
 		ft_putstr(actions[i]);
 		write(1, "\n", 1);
-		if (g_visualizer == 1)
-			visualizer_mlx_update(NULL, stack_a, stack_b, NULL);
 		i++;
 	}
-	//debug
-	// printf("output of actions:\n");
-	// print_both_lists(*stack_a, *stack_b);
 }

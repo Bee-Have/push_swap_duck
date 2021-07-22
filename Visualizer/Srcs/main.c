@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 16:14:51 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/22 18:54:00 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/22 19:30:44 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		main(int ac, char **av)
 	}
 	if (check_list(list, ac - 1) == -1)
 		return (0);
-	task_manager(list, ac);
+	task_manager(list, ac - 1);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:15:26 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/22 16:51:59 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/22 19:41:26 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	visualizer_mlx_update(t_data *real_data, t_list **stack_a
 	stack_pixel_put(&data, stack_b, &window);
 	mlx_put_image_to_window(data.mlx, data.win, data.img, 0, 0);
 	window.total_pxl = 0;
-	// mlx_loop(data->mlx);
+	mlx_loop(data.mlx);
 }
 
 void	stack_pixel_put(t_data *data, t_list **stack, t_win_info *win_info)

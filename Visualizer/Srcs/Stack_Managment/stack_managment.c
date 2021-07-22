@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:47:51 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/22 18:52:55 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/22 19:30:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_list	*init_stack(long long int *list, int len)
 	iterator = stack;
 	while (i < len)
 	{
+		printf("value-[%lld]\n", list[i]);
 		iterator->next = ft_lstnew(list[i]);
 		iterator = iterator->next;
 		i++;

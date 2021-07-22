@@ -31,9 +31,6 @@ OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 
 all: Libs/libft/libft.a $(NAME)
 
-Libs/mlx/libmlx.a:
-	make -C $(MLX_DIR) all
-
 Libs/libft/libft.a:
 	make -C $(LIBFT_DIR) all
 
