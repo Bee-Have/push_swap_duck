@@ -71,7 +71,7 @@ do 'produit en croix' to define window value
 
 ------------------------------------------------------------
 
-VISUALIZE PROCESS
+VISUALIZE PROCESS OLD
 
 recieve values of "A" "B" | pixels_per_value | mlx data
 
@@ -108,3 +108,42 @@ CALCULATE Y
 
 y is the height the value will have in the window
 y = value / height of window
+
+-------------------------------------------------------
+
+STACK PIXEL PUT
+
+iterate through stack
+for each value :
+	calculate y
+	while y < window width
+		while x < pxl_per_value
+			print x, y, color
+			x++
+		y++
+	next value
+
+------------------------------------------------------------------
+
+if mlx_loop is called, no return;
+so maybe i do need another executable that reads from stdin
+
+first, put the av in a file + everything that will be written;
+maybe to complicated to write ?
+seems too complicated
+works like checker : 
+will take vaarg in parameter && will read from stdin
+(that will be wayyyyyy less complicated)
+
+-----------------------------------------------------------------
+
+visualizer will need to have it's own struct
+also his own operations
+(we should do them in circular lists though, way easier)
+
+first -> take given args like push_swap
+
+call -> mlx functions to print window
+read -> read stdin with gnl
+then -> depending on what's read, send function
+repeat;

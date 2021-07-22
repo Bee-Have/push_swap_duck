@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 12:44:04 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/14 11:44:37 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/22 16:24:00 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ char	**moves_calculator_manager(t_list **stack_a, t_list **stack_b)
 		// ft_print_tab(moves_a);
 		// ft_print_tab(moves_b);
 		both_moves = check_common_moves(moves_a, moves_b);
-		if (!best_moves || ft_strlen_2d((const char **)both_moves)
-			< ft_strlen_2d((const char **)best_moves))
+		if (!best_moves || ft_tablen((const char **)both_moves)
+			< ft_tablen((const char **)best_moves))
 			best_moves = both_moves;
 		free(moves_a);
 		free(moves_b);

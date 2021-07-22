@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:28:33 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/20 16:11:26 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/22 11:36:25 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 		ft_putstr(actions[i]);
 		write(1, "\n", 1);
 		if (g_visualizer == 1)
-		{
-			printf("FUCK YES\n");
 			visualizer_mlx_update(NULL, stack_a, stack_b, NULL);
-		}
 		i++;
 	}
 	//debug

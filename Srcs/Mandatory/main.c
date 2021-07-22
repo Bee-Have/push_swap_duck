@@ -1,12 +1,5 @@
 #include "../../Includes/push_swap.h"
 
-
-#if defined MLX_H
-const static int	g_visualizer = 1;
-#else
-const static int	g_visualizer = 0;
-#endif
-
 int		main(int ac, char **av)
 {
 	long long int	*list;
@@ -39,8 +32,6 @@ void	task_manager(long long int *list, int len)
 
 	a = init_stack(list, len);
 	b = NULL;
-	if (g_visualizer == 1)
-		visualizer_init_manager(&a);
 	algorythm_manager(&a, &b);
 }
 

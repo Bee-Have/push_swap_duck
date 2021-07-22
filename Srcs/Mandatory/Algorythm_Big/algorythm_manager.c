@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 11:31:12 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/21 12:14:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/22 16:24:00 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	algorythm_manager(t_list **stack_a, t_list **stack_b)
 		moves = moves_calculator_manager(stack_a, stack_b);
 		//call the actions executor
 		execute_actions(stack_a, stack_b, moves);
-		total_moves += ft_strlen_2d((const char **)moves);
+		total_moves += ft_tablen((const char **)moves);
 		//repeat until list a is empty
 	}
 	//call checker to verify if all values are sorted in "B"
 	moves = ft_tabjoin(calc_order_moves(stack_b), calc_final_moves(stack_b));
 	//call executor to put everything from "B" to "A"
-	total_moves += ft_strlen_2d((const char **)moves);
+	total_moves += ft_tablen((const char **)moves);
 	execute_actions(stack_a, stack_b, moves);
 	if (check_order(stack_a) == 1)
 	{
