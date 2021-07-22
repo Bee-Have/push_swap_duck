@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/21 21:28:11 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/22 10:34:09 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ typedef	struct s_win_info
 	int		height;
 	int		pxl_per_value;
 	int		total_pxl;
-	int		biggest;
 	int		smallest;
 }				t_win_info;
 

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:18:17 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/21 21:27:57 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/22 10:34:54 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	visualizer_init_manager(t_list **stack)
 	real_width = 2560;
 	real_height = 1440;
 	win_info = mlx_window_info_init();
-	win_info.biggest = get_biggest_value(stack);
 	win_info.smallest = get_smallest_value(stack);
 	win_info.pxl_per_value = calc_pxl_per_node(stack, &win_info.width, real_width);
 	mlx_data_init(&data, &win_info);
@@ -36,6 +35,7 @@ int		calc_pxl_per_node(t_list **stack, int *width, int real_width)
 
 	length = lst_len(stack);
 	pxl_per_value = (*width - 1) / length;
+	printf("pxl_per_value-[%d]\n", pxl_per_value);
 	if (pxl_per_value <= 0 && *width == real_width)
 	{
 		printf("can't get pxl_per_value because under zero\n");

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:16:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/21 16:25:18 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/22 10:36:19 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,7 @@ int		get_smallest_value(t_list **list)
 			smallest = iterator->value;
 		iterator = iterator->next;
 	}
+	// if (smallest == 0)
+		// smallest = 1;
 	return (smallest);
 }
