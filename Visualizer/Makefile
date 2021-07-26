@@ -1,7 +1,7 @@
 NAME = visualizer
 
 CC = gcc
-CFLAGS = -W -Wall -Wextra -Werror
+CFLAGS = -w -Wall -Wextra -Werror
 
 DEBUG =
 ifdef DEBUG
@@ -22,6 +22,7 @@ vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
 
 SRCS = main.c \
 	visualizer_manager.c visualizer_mlx_print.c \
+	visualizer_read_entry.c visualizer_utils.c \
 	stack_single_operations.c stack_multi_operations.c \
 	stack_managment.c stack_search.c stack_length.c \
 	error_manager.c
@@ -56,7 +57,7 @@ fclean: clean
 	rm -rf  $(NAME)
 
 cleanall: fclean
-	make -C $(MLX_DIR) fclean
+	make -C $(MLX_DIR) clean
 	make -C $(LIBFT_DIR) fclean
 	make -C $(GETFILE_DIR) fclean
 

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:18:17 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/22 19:41:08 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/26 15:00:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	visualizer_init_manager(t_list **stack)
 	real_width = 2560;
 	real_height = 1440;
 	win_info = mlx_window_info_init();
-	win_info.biggest = get_biggest_value(stack);
-	win_info.smallest = get_smallest_value(stack);
+	win_info.max = get_biggest_value(stack);
+	win_info.min = get_smallest_value(stack);
+	rescale_values(&win_info, stack, NULL);
 	win_info.pxl_per_value = calc_pxl_per_node(stack, &win_info.width, real_width);
 	mlx_data_init(&data, &win_info);
 	visualizer_mlx_update(&data, stack, NULL, &win_info);

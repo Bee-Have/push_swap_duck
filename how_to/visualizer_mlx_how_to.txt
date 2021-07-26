@@ -147,3 +147,38 @@ call -> mlx functions to print window
 read -> read stdin with gnl
 then -> depending on what's read, send function
 repeat;
+
+--------------------------------------------------------
+
+SCALING
+
+upon recieving stack,
+change value so they have equal gaps
+
+that seems to be easier
+do it after testing for errors
+
+to have perfect gap :
+value = (value - max_value) / (max_value - min_value)
+
+OR
+
+crete fuction which iterate through stack
+
+--------------------------------------------------------
+
+use gnl to read from stdin
+
+from printing function, test if stdin sent something
+
+line has to be checked :
+lina can only be : sa sb pa pb ra rb rr rra rrb rrr
+any other will result in return of error (&& free stacks)
+
+then the appropriate functions will be called
+appropriate functions are the actions
+then return
+
+or :
+
+call stdin function, unpon entering it will send call to visualizer

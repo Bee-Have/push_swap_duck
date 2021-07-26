@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 17:15:26 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/22 19:41:26 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/26 15:54:44 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,24 @@ void	visualizer_mlx_update(t_data *real_data, t_list **stack_a
 {
 	static	t_win_info	window;
 	static	t_data	data;
+	char	line[10];
 
 	if (real_data)
 		data = *real_data;
 	if (win_info)
 		window = *win_info;
+	//check if return of gnl from stdin is not NULL
+	//call function to interpret stdin;
+	if (check_order(stack_b) == 0)
+	{
+		write(1, "OK", 2);
+		exit(1);
+	}
+	if (fgets(line, 10, stdin) > 0)
+	{
+		reader_manager(line, stack_a, stack_b);
+		printf("changed\n");
+	}
 	stack_pixel_put(&data, stack_a, &window);
 	stack_pixel_put(&data, stack_b, &window);
 	mlx_put_image_to_window(data.mlx, data.win, data.img, 0, 0);
@@ -29,7 +42,7 @@ void	visualizer_mlx_update(t_data *real_data, t_list **stack_a
 	mlx_loop(data.mlx);
 }
 
-void	stack_pixel_put(t_data *data, t_list **stack, t_win_info *win_info)
+void	stack_pixel_put(t_data *data, t_list **stack, t_win_info *win)
 {
 	t_list	*iterator;
 	int		x;
@@ -40,23 +53,21 @@ void	stack_pixel_put(t_data *data, t_list **stack, t_win_info *win_info)
 	iterator = *stack;
 	while (iterator)
 	{
-		y = ((win_info->height - win_info->pxl_per_value) * win_info->smallest) / iterator->value;
-		// printf("y-[%d] ", y);
-		while (y < win_info->height)
+		y = ((win->height - win->pxl_per_value) * win->min) / iterator->value;
+		while (y < win->height)
 		{
 			x = 0;
-			while (x < win_info->pxl_per_value && y < win_info->height)
+			while (x < win->pxl_per_value && y < win->height)
 			{
-				// printf("x-[%d] y-[%d]\n", x, y);
 				if (iterator->sorted == 0)
-					my_mlx_pixel_put(data, (x + win_info->total_pxl), y, 0x00FF0000);
+					my_mlx_pixel_put(data, (x + win->total_pxl), y, 0x00FF0000);
 				else
-					my_mlx_pixel_put(data, (x + win_info->total_pxl), y, 0x0000FF00);
+					my_mlx_pixel_put(data, (x + win->total_pxl), y, 0x0000FF00);
 				x++;
 			}
 			y++;
 		}
-		win_info->total_pxl += win_info->pxl_per_value;
+		win->total_pxl += win->pxl_per_value;
 		iterator = iterator->next;
 	}
 }

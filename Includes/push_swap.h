@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/22 12:37:00 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/26 12:56:12 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	place_id(t_list **list);
 int		lst_len(t_list **list);
 
 int		get_id(t_list *list, int value);
-int		get_node_sorted_value(t_list **list, int id);
+int		get_node_sorted_state(t_list **list, int id);
 int		get_node_value(t_list **list, int id);
 int		get_biggest_value(t_list **list);
 int		get_smallest_value(t_list **list);

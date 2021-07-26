@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 12:11:35 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/22 18:57:03 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/26 15:00:26 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ typedef	struct s_win_info
 	int		height;
 	int		pxl_per_value;
 	int		total_pxl;
-	int		biggest;
-	int		smallest;
+	int		max;
+	int		min;
 }				t_win_info;
 
 //VISUALIZER
@@ -52,7 +52,19 @@ void	visualizer_mlx_update(t_data *real_data, t_list **stack_a
 							, t_list **stack_b, t_win_info *win_info);
 void	stack_pixel_put(t_data *data, t_list **stack, t_win_info *win_info);
 void	my_mlx_pixel_put(t_data *img, int x, int y, int color);
+
+//VISUALIZER READER
+void	reader_manager(char *line, t_list **stack_a, t_list **stack_b);
+int		reader_parser(char *line);
+void	reader_actions_execute(char *line, t_list **stack_a, t_list **stack_b);
+
+//VISUALIZER UTILS
+void	rescale_values(t_win_info *win, t_list **stack_a, t_list **stack_b);
+void	stack_values_change(t_list **stack, t_win_info *win);
+int		check_order(t_list **stack);
+
 // TEST VISUALIZER
+// will have to delete this at the end
 void	mlx_put_square(t_data *img);
 int		mlx_redraw(t_data *img);
 
@@ -61,6 +73,7 @@ void	swap(t_list **stack);
 void	push(t_list **src, t_list **dst);
 void	rotate(t_list **stack);
 void	reverse_rotate(t_list **stack);
+
 // DOUBLE
 void	double_swap(t_list **stack_a, t_list **stack_b);
 void	double_rotate(t_list **stack_a, t_list **stack_b);
@@ -75,7 +88,7 @@ t_list	*init_stack(long long int *list, int len);
 void	place_id(t_list **list);
 int		lst_len(t_list **list);
 int		get_id(t_list *list, int value);
-int		get_node_sorted_value(t_list **list, int id);
+int		get_node_sorted_state(t_list **list, int id);
 int		get_node_value(t_list **list, int id);
 int		get_biggest_value(t_list **list);
 int		get_smallest_value(t_list **list);

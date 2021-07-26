@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:16:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/22 10:36:19 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/26 12:56:12 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	get_id(t_list *list, int value)
 	return (0);
 }
 
-int		get_node_sorted_value(t_list **list, int id)
+int		get_node_sorted_state(t_list **list, int id)
 {
 	t_list	*iterator;
 
