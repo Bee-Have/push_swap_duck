@@ -6,25 +6,39 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 14:01:11 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/14 11:44:34 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/26 17:56:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../Includes/push_swap.h"
+#include "../../../../Includes/push_swap.h"
+
+int		check_order(t_list **stack)
+{
+	t_list	*iterator;
+
+	iterator = *stack;
+	while (iterator->next)
+	{
+		if (iterator->value > iterator->next->value)
+			return (1);
+		iterator = iterator->next;
+	}
+	return (0);
+}
 
 int		find_node_pos(t_list **stack, char **move, char *denominator, int id)
 {
 	int		length;
 
 	length = 0;
-	if (id <= lst_len(stack) / 2)
+	if (id <= struct_len(stack) / 2)
 	{
 		length = id;
 		(*move) = ft_strjoin("r", denominator);
 	}
-	else if (id > lst_len(stack) / 2)
+	else if (id > struct_len(stack) / 2)
 	{
-		length = lst_len(stack) - id;
+		length = struct_len(stack) - id;
 		(*move) = ft_strjoin("rr", denominator);
 	}
 	return (length);

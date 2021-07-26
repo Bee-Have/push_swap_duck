@@ -6,13 +6,22 @@ int		main(int ac, char **av)
 	int	iav;
 	int	ilist;
 
+	// printf("ac-[%d]\n", ac);
 	if (ac < 2)
 		return (0);
+	if (ac == 2)
+	{
+		av = ft_split(av[1], ' ');
+		ac = ft_tablen((const char **)av);
+	}
+	else
+		ac--;
 	iav = 1;
 	ilist = 0;
 	list = (long long int *)malloc((ac - 1) * sizeof(long long int));
 	if (!list)
 		return (0);
+	// ft_print_tab(av);
 	while (iav < ac)
 	{
 		list[ilist] = ft_atoi(av[iav]);
@@ -32,7 +41,10 @@ void	task_manager(long long int *list, int len)
 
 	a = init_stack(list, len);
 	b = NULL;
-	algorythm_manager(&a, &b);
+	if (len > 3)
+		big_manager(&a, &b);
+	else
+		small_manager(&a, &b);
 }
 
 int	check_list(long long int *list, int len)

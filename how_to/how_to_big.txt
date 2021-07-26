@@ -6,6 +6,9 @@ BAREME
 100->700 operations
 500->5500 operations
 
+cmd:
+ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"` ; ./push_swap $ARG | wc -l
+
 so
 
 we have to sort numbers from tiniest value to bigest value

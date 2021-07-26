@@ -3,8 +3,6 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-VISUAL =
-
 DEBUG =
 ifdef DEBUG
 CFLAGS += -fsanitize=address -g3
@@ -21,12 +19,13 @@ INCLUDES = -I$(LIBFT_DIR)/Includes -I$(INC_DIR)
 
 vpath %.c $(foreach dir, $(SRCS_DIR), $(dir):)
 
-SRCS = debug_print.c error_manager.c \
+SRCS = main.c error_manager.c \
 		stack_search.c stack_length.c stack_managment.c \
 		stack_multi_operations.c stack_single_operations.c \
-		algorythm_execute.c algorythm_manager.c \
-		algorythm_moves_calculator.c algorythm_finish.c algorythm_utils.c \
-		main.c
+		algorythm_execute.c algorythm_utils.c \
+		big_manager.c big_moves_calculator.c algorythm_finish.c \
+		small_manager.c \
+		debug_print.c
 OBJS = $(addprefix $(OBJS_DIR)/,$(SRCS:.c=.o))
 
 all: Libs/libft/libft.a $(NAME)

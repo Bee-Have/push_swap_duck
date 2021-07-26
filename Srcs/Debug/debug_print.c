@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:14:57 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/12 15:27:39 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/26 16:43:30 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //CONTENT OF NODES
 
-void	print_list(t_list *stack)
+void	print_struct(t_list *stack)
 {
 	char	*tmp;
 
@@ -33,8 +33,8 @@ void	print_list(t_list *stack)
 
 void	print_both_lists(t_list *stack_a, t_list *stack_b)
 {
-	print_list(stack_a);
-	print_list(stack_b);
+	print_struct(stack_a);
+	print_struct(stack_b);
 	return ;
 }
 

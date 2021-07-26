@@ -6,25 +6,11 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 12:30:29 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/26 12:57:35 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/26 18:07:44 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../Includes/push_swap.h"
-
-int		check_order(t_list **stack)
-{
-	t_list	*iterator;
-
-	iterator = *stack;
-	while (iterator->next)
-	{
-		if (iterator->value > iterator->next->value)
-			return (1);
-		iterator = iterator->next;
-	}
-	return (0);
-}
+#include "../../../../Includes/push_swap.h"
 
 char	**calc_order_moves(t_list **stack)
 {
@@ -39,7 +25,6 @@ char	**calc_order_moves(t_list **stack)
 	length = 0;
 	i = 0;
 	biggest_id = 0;
-	//find biggest value;
 	while (iterator)
 	{
 		if (iterator->value > biggest_id)
@@ -47,25 +32,20 @@ char	**calc_order_moves(t_list **stack)
 		iterator = iterator->next;
 	}
 	biggest_id = get_id(*stack, biggest_id);
-	//if biggest value in head register rb
-	//if biggest value in tail register rrb
 	length = find_node_pos(stack, &move, "b", biggest_id);
-	//allocate moves
 	final_moves = (char **)malloc((length + 1) * sizeof(char *));
 	if (!final_moves)
 		return (NULL);
-	//fill up move {char **}
 	final_moves[length] = NULL;
 	while (i < length)
 	{
 		final_moves[i] = ft_strdup(move);
 		i++;
 	}
-	//return moves
 	return (final_moves);
 }
 
-char	**calc_final_moves(t_list **stack)
+char	**big_final_moves(t_list **stack)
 {
 	t_list	*iterator;
 	char	**moves;

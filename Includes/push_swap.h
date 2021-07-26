@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/26 12:56:12 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/26 18:23:18 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,43 +40,42 @@ void	double_rotate(t_list **stack_a, t_list **stack_b);
 void	double_reverse_rotate(t_list **stack_a, t_list **stack_b);
 
 //ALGO MANAGER
-void	algorythm_manager(t_list **stack_a, t_list **stack_b);
+void	big_manager(t_list **stack_a, t_list **stack_b);
+void	small_manager(t_list **stack_a, t_list **stack_b);
 
-//ALGO PRE_SORTING
+//ALGO SMALL MOVE CALCULATOR
+char	**get_smallest_value_out(t_list **stack, char *denominator);
+char	**small_sorting_moves(t_list **stack);
+char	**small_final_moves(t_list **stack);
 
-//ALGO MOVE CALCULATOR
-char	**moves_calculator_manager(t_list **stack_a, t_list **stack_b);
-char	**calc_moves_stack(t_list **stack, int id, char *denominator);
+//ALGO BIG MOVE CALCULATOR
+char	**big_moves_manager(t_list **stack_a, t_list **stack_b);
+char	**big_moves_stack(t_list **stack, int id, char *denominator);
 int		get_best_B_id(t_list **stack, int a_value);
-char	**check_common_moves(char **moves_a, char **moves_b);
+char	**big_common_moves(char **moves_a, char **moves_b);
+char	**big_final_moves(t_list **stack);
 
-//ALGO FINISH
-int		check_order(t_list **stack);
-char	**calc_order_moves(t_list **stack);
-char	**calc_final_moves(t_list **stack);
-
-//ALGO EXECUTE
+//ALGO COMMON
 void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions);
-char	**calc_final_moves(t_list **stack);
-
-//ALGO UTILS
+int		check_order(t_list **stack);
 int		find_node_pos(t_list **stack, char **move, char *denominator, int id);
+char	**calc_order_moves(t_list **stack);
 
 //STACK ID NODES MONITORING
 void	place_id(t_list **list);
-int		lst_len(t_list **list);
+int		struct_len(t_list **list);
 
 int		get_id(t_list *list, int value);
 int		get_node_sorted_state(t_list **list, int id);
 int		get_node_value(t_list **list, int id);
 int		get_biggest_value(t_list **list);
-int		get_smallest_value(t_list **list);
+int		get_smallest(t_list **list);
 
 //ERRORS
 int		error_message();
 
 //DEBUG
-void	print_list(t_list *stack);
+void	print_struct(t_list *stack);
 void	print_both_lists(t_list *stack_a, t_list *stack_b);
 void	print_id(t_list *stack);
 void	print_both_id(t_list *stack_a, t_list *stack_b);

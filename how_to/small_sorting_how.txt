@@ -15,3 +15,37 @@ will have to use swap ? (not sure yet)
 
 
 maybe QUICKSORT ?
+
+--------------------------------------------------------------------
+
+alright
+so, for three elements :
+
+maintain 3 biggest elements
+how to keep them in mind ?
+struct maybe ? that way we can have the biggest and smallest ?
+
+or
+just keep it as is because it's working
+and implement specifics for list of 3/5
+
+
+if list size <= 5 =
+find two smallest values
+check wich one would be easiest to move to B
+	move said value
+then move other value
+do algo of three
+calculate how to move biggest number of B to A
+if ra or rra in A && ra in B switch to rr or rrr
+pa value on top of A
+
+if (next < current)
+	swap
+else if (next > current)
+{
+	if (next == biggest)
+		ra
+	if (next != biggest)
+		rra
+}
