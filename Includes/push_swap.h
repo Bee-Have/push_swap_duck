@@ -6,24 +6,18 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/26 18:23:18 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/27 17:17:07 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#if defined __has_include
-#	if __has_include (<mlx.h>)
-#		include <mlx.h>
-#	endif
-#endif
-
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include "../Libs/libft/Includes/libft.h"
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <limits.h>
+# include "../Libs/libft/Includes/libft.h"
 
 t_list	*init_stack(long long int *list, int len);
 
@@ -56,10 +50,14 @@ char	**big_common_moves(char **moves_a, char **moves_b);
 char	**big_final_moves(t_list **stack);
 
 //ALGO COMMON
-void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions);
 int		check_order(t_list **stack);
 int		find_node_pos(t_list **stack, char **move, char *denominator, int id);
 char	**calc_order_moves(t_list **stack);
+char	**fill_moves(char *fill, int length);
+
+//ALGO EXECUTOR
+void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions);
+void	actions_interpretor(char *action, t_list **stack_a, t_list **stack_b);
 
 //STACK ID NODES MONITORING
 void	place_id(t_list **list);
@@ -72,11 +70,11 @@ int		get_biggest_value(t_list **list);
 int		get_smallest(t_list **list);
 
 //ERRORS
-int		error_message();
+int		error_message(void);
 
 //DEBUG
 void	print_struct(t_list *stack);
-void	print_both_lists(t_list *stack_a, t_list *stack_b);
+void	print_both_struct(t_list *stack_a, t_list *stack_b);
 void	print_id(t_list *stack);
 void	print_both_id(t_list *stack_a, t_list *stack_b);
 

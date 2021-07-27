@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 16:23:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/26 17:26:59 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/27 17:09:18 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ void	place_id(t_list **list)
 	}
 }
 
-
-int		struct_len(t_list **list)
+int	struct_len(t_list **list)
 {
 	t_list	*iterator;
 

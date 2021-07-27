@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 12:30:29 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/26 18:07:44 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/27 16:48:38 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,15 @@
 
 char	**calc_order_moves(t_list **stack)
 {
-	t_list	*iterator;
 	char	**final_moves;
 	char	*move;
 	int		length;
 	int		i;
 	int		biggest_id;
 
-	iterator = *stack;
 	length = 0;
 	i = 0;
-	biggest_id = 0;
-	while (iterator)
-	{
-		if (iterator->value > biggest_id)
-			biggest_id = iterator->value;
-		iterator = iterator->next;
-	}
-	biggest_id = get_id(*stack, biggest_id);
+	biggest_id = get_id(*stack, get_biggest_value(stack));
 	length = find_node_pos(stack, &move, "b", biggest_id);
 	final_moves = (char **)malloc((length + 1) * sizeof(char *));
 	if (!final_moves)

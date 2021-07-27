@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 12:44:04 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/26 18:19:01 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/27 16:59:34 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ char	**big_moves_manager(t_list **stack_a, t_list **stack_b)
 	best_moves = NULL;
 	while (iterator)
 	{
-		moves_b = big_moves_stack(stack_b
-				, get_best_B_id(stack_b, iterator->value), "b");
+		moves_b = big_moves_stack(stack_b,
+				get_best_B_id(stack_b, iterator->value), "b");
 		moves_a = big_moves_stack(stack_a, iterator->id, "a");
 		both_moves = big_common_moves(moves_a, moves_b);
 		if (!best_moves || ft_tablen((const char **)both_moves)
@@ -66,7 +66,7 @@ char	**big_moves_stack(t_list **stack, int id, char *denominator)
 	return (result);
 }
 
-int		get_best_B_id(t_list **stack, int a_value)
+int	get_best_B_id(t_list **stack, int a_value)
 {
 	t_list	*iterator;
 	int		biggest;
@@ -100,14 +100,10 @@ char	**big_common_moves(char **moves_a, char **moves_b)
 	char	**result;
 	char	*move;
 	int		length;
-	int		i;
 
-	i = 0;
 	length = 0;
 	if (!moves_b[0])
 		return (ft_tabdup(moves_a));
-	if (ft_strlen(moves_a[0]) != ft_strlen(moves_b[0]))
-		return (ft_tabjoin(moves_b, moves_a));
 	if (ft_strcmp(moves_a[0], "ra") == 0)
 		move = ft_strdup("rr");
 	else if (ft_strcmp(moves_a[0], "rra") == 0)
@@ -116,21 +112,14 @@ char	**big_common_moves(char **moves_a, char **moves_b)
 		&& ft_strlen(moves_a[length]) == ft_strlen(moves_b[length])
 		&& ft_strcmp(moves_a[length], "pb") == 1)
 		length++;
-	if (length == 0)
+	if (length == 0 || ft_strlen(moves_a[0]) != ft_strlen(moves_b[0]))
 		return (ft_tabjoin(moves_b, moves_a));
 	moves_a = ft_erase(moves_a, 0, length);
 	moves_b = ft_erase(moves_b, 0, length);
-	result = (char **)malloc((length + 1) * sizeof(char *));
-	if (!result)
-		return (NULL);
-	result[length] = NULL;
-	while (i < length)
-	{
-		result[i] = ft_strdup(move);
-		i++;
-	}
+	result = fill_moves(move, length);
 	if (moves_b[0])
 		result = ft_tabjoin(result, moves_b);
 	result = ft_tabjoin(result, moves_a);
+	free(move);
 	return (result);
 }

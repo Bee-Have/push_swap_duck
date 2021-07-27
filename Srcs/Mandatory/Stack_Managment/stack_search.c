@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:16:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/26 17:54:09 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/27 17:10:02 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	get_id(t_list *list, int value)
 	return (0);
 }
 
-int		get_node_sorted_state(t_list **list, int id)
+int	get_node_sorted_state(t_list **list, int id)
 {
 	t_list	*iterator;
 
@@ -38,7 +38,7 @@ int		get_node_sorted_state(t_list **list, int id)
 	return (iterator->sorted);
 }
 
-int		get_node_value(t_list **list, int id)
+int	get_node_value(t_list **list, int id)
 {
 	t_list	*iterator;
 
@@ -50,7 +50,7 @@ int		get_node_value(t_list **list, int id)
 	return (iterator->value);
 }
 
-int		get_biggest_value(t_list **list)
+int	get_biggest_value(t_list **list)
 {
 	t_list	*iterator;
 	int		biggest;
@@ -66,7 +66,7 @@ int		get_biggest_value(t_list **list)
 	return (biggest);
 }
 
-int		get_smallest(t_list **list)
+int	get_smallest(t_list **list)
 {
 	t_list	*iterator;
 	int		smallest;

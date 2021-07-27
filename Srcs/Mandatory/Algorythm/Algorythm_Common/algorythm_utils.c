@@ -6,13 +6,13 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 14:01:11 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/26 17:56:46 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/27 17:18:56 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../../Includes/push_swap.h"
 
-int		check_order(t_list **stack)
+int	check_order(t_list **stack)
 {
 	t_list	*iterator;
 
@@ -26,7 +26,7 @@ int		check_order(t_list **stack)
 	return (0);
 }
 
-int		find_node_pos(t_list **stack, char **move, char *denominator, int id)
+int	find_node_pos(t_list **stack, char **move, char *denominator, int id)
 {
 	int		length;
 
@@ -42,4 +42,22 @@ int		find_node_pos(t_list **stack, char **move, char *denominator, int id)
 		(*move) = ft_strjoin("rr", denominator);
 	}
 	return (length);
+}
+
+char	**fill_moves(char *fill, int length)
+{
+	int		i;
+	char	**moves;
+
+	i = 0;
+	moves = (char **)malloc((length + 1) * sizeof(char *));
+	if (!moves)
+		return (NULL);
+	moves[length] = NULL;
+	while (i < length)
+	{
+		moves[i] = ft_strdup(fill);
+		i++;
+	}
+	return (moves);
 }

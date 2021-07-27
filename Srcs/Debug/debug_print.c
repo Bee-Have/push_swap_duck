@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:14:57 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/26 16:43:30 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/27 11:58:28 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	print_struct(t_list *stack)
 	return ;
 }
 
-void	print_both_lists(t_list *stack_a, t_list *stack_b)
+void	print_both_struct(t_list *stack_a, t_list *stack_b)
 {
 	print_struct(stack_a);
 	print_struct(stack_b);

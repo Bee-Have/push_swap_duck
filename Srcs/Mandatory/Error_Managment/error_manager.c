@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 16:01:55 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/14 11:44:31 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/27 16:46:18 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	error_message(void)
 {
-	write(1, "Error\n", 6);
+	write (1, "Error\n", 6);
 	return (-1);
 }

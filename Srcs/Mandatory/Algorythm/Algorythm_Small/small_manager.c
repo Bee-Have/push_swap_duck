@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 17:18:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/26 18:27:59 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/27 16:46:52 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,25 @@ void	small_manager(t_list **stack_a, t_list **stack_b)
 {
 	int		total_moves;
 	char	**moves;
-	
+
 	total_moves = 0;
-	while (check_order(stack_a) == 1 || stack_b)
+	while (check_order(stack_a) == 1)
 	{
 		if (struct_len(stack_a) > 3)
 			moves = get_smallest_value_out(stack_a, "a");
 		else
 			moves = small_sorting_moves(stack_a);
-		if (check_order(stack_a) == 1)
-			execute_actions(stack_a, stack_b, moves);
+		execute_actions(stack_a, stack_b, moves);
+		total_moves += ft_tablen((const char **)moves);
+	}
+	while ((*stack_b))
+	{
+		small_final_moves(stack_b);
+		execute_actions(stack_a, stack_b, moves);
 		total_moves += ft_tablen((const char **)moves);
 	}
 	if (check_order(stack_a) == 1)
-	{
-		printf("list has not been sorted\n");
 		error_message();
-	}
 	free(moves);
 }
 
@@ -44,22 +46,17 @@ char	**get_smallest_value_out(t_list **stack, char *denominator)
 	int		i;
 
 	i = 0;
-	//find number or ra/rra to get it out
 	length = find_node_pos(stack, &move, denominator, get_smallest(stack));
-	//for each number, malloc char **
-	final_moves = (char **)malloc((length + 2) * sizeof(char *));
+	final_moves = (char **)malloc((length + 1) * sizeof(char *));
 	if (!final_moves)
 		return (NULL);
 	final_moves[length] = NULL;
-	//fill it with either ra | rra
 	while (i < length)
 	{
 		final_moves[i] = ft_strdup(move);
 		i++;
 	}
-	//add final pb
-	final_moves[i] = ft_strdup("pb");
-	//return char **
+	final_moves = ft_add_tab(final_moves, "pb");
 	return (final_moves);
 }
 
@@ -67,33 +64,32 @@ char	**small_sorting_moves(t_list **stack)
 {
 	char	**moves;
 
-	moves = (char **)malloc(2 * sizeof(char *));
-	if (!moves)
-		return (NULL);
-	moves[1] = NULL;
-	if ((*stack)->next->value < (*stack)->value)
-		moves[0] = ft_strdup("sa");
-	else if ((*stack)->next->value > (*stack)->value)
+	moves = NULL;
+	if ((*stack)->value > (*stack)->next->value)
+		moves = ft_add_tab(NULL, "sa");
+	else
 	{
 		if ((*stack)->next->value == get_biggest_value(stack))
-			moves[0] = ft_strdup("ra");
-		if ((*stack)->next->value != get_biggest_value(stack))
-			moves[0] = ft_strdup("rra");
+			moves = ft_add_tab(NULL, "ra");
+		if ((*stack)->value == get_node_value(stack, get_smallest(stack)))
+			moves = ft_add_tab(NULL, "rra");
 	}
 	return (moves);
 }
 
 char	**small_final_moves(t_list **stack)
 {
+	t_list	*tmp;
 	char	**moves;
-	
-	moves = (char **)malloc(2 * sizeof(char *));
-	if (!moves)
+
+	if (!stack)
 		return (NULL);
-	moves[1] = NULL;
-	if (!(*stack)->next || (*stack)->value > (*stack)->next->value)
-		moves[0] = ft_strdup("pa");
+	tmp = *stack;
+	if (tmp->next == NULL)
+		moves = ft_add_tab(NULL, "pa");
+	else if (tmp->value > tmp->next->value)
+		moves = ft_add_tab(NULL, "sb");
 	else
-		moves[0] = ft_strdup("sa");
+		moves = ft_add_tab(NULL, "pa");
 	return (moves);
 }
