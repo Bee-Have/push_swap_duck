@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 12:44:04 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/29 17:01:22 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 18:01:08 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ char	**big_common_moves(char **moves_a, char **moves_b)
 	int		length;
 
 	length = 0;
+	move = NULL;
 	if (!moves_b[0])
 		return (ft_tabdup(moves_a));
 	while (moves_a[length] && moves_b[length]

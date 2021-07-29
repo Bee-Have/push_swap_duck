@@ -26,10 +26,11 @@ void	big_manager(t_list **stack_a, t_list **stack_b)
 		ft_freetab(moves);
 	}
 	moves = tabjoin_free(calc_order_moves(stack_b),
-						big_final_moves(stack_b), 3);
+			big_final_moves(stack_b), 3);
 	total_moves += ft_tablen((const char **)moves);
 	execute_actions(stack_a, stack_b, moves);
 	if (check_order(stack_a) == 1)
 		error_message();
+	print_struct(*stack_a);
 	ft_freetab(moves);
 }

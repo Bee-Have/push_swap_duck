@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:47:51 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/29 16:50:54 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 17:59:16 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	free_struct(t_list **stack)
 {
 	t_list	*iterator;
 
-	while(*stack)
+	while (*stack)
 	{
 		iterator = *stack;
 		*stack = (*stack)->next;
