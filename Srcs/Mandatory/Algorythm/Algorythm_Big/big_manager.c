@@ -23,15 +23,13 @@ void	big_manager(t_list **stack_a, t_list **stack_b)
 		moves = big_moves_manager(stack_a, stack_b);
 		execute_actions(stack_a, stack_b, moves);
 		total_moves += ft_tablen((const char **)moves);
+		ft_freetab(moves);
 	}
-	moves = ft_tabjoin(calc_order_moves(stack_b), big_final_moves(stack_b));
+	moves = tabjoin_free(calc_order_moves(stack_b),
+						big_final_moves(stack_b), 3);
 	total_moves += ft_tablen((const char **)moves);
 	execute_actions(stack_a, stack_b, moves);
 	if (check_order(stack_a) == 1)
-	{
-		printf("list has not been sorted\n");
 		error_message();
-	}
-	print_struct(*stack_a);
-	free(moves);
+	ft_freetab(moves);
 }

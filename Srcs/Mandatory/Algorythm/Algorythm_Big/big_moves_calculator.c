@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 12:44:04 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/27 16:59:34 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 17:01:22 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,14 @@ char	**big_moves_manager(t_list **stack_a, t_list **stack_b)
 		both_moves = big_common_moves(moves_a, moves_b);
 		if (!best_moves || ft_tablen((const char **)both_moves)
 			< ft_tablen((const char **)best_moves))
-			best_moves = both_moves;
-		free(moves_a);
-		free(moves_b);
+		{
+			if (best_moves)
+				ft_freetab(best_moves);
+			best_moves = ft_tabdup(both_moves);
+		}
+		ft_freetab(moves_a);
+		ft_freetab(moves_b);
+		ft_freetab(both_moves);
 		iterator = iterator->next;
 	}
 	return (best_moves);
@@ -63,6 +68,7 @@ char	**big_moves_stack(t_list **stack, int id, char *denominator)
 	}
 	if (ft_strcmp(denominator, "a") == 0)
 		result = ft_add_tab(result, "pb");
+	free(move);
 	return (result);
 }
 
@@ -104,22 +110,24 @@ char	**big_common_moves(char **moves_a, char **moves_b)
 	length = 0;
 	if (!moves_b[0])
 		return (ft_tabdup(moves_a));
-	if (ft_strcmp(moves_a[0], "ra") == 0)
-		move = ft_strdup("rr");
-	else if (ft_strcmp(moves_a[0], "rra") == 0)
-		move = ft_strdup("rrr");
 	while (moves_a[length] && moves_b[length]
 		&& ft_strlen(moves_a[length]) == ft_strlen(moves_b[length])
 		&& ft_strcmp(moves_a[length], "pb") == 1)
 		length++;
 	if (length == 0 || ft_strlen(moves_a[0]) != ft_strlen(moves_b[0]))
-		return (ft_tabjoin(moves_b, moves_a));
+		return (tabjoin_free(moves_b, moves_a, 0));
+	if (ft_strcmp(moves_a[0], "ra") == 0)
+		move = ft_strdup("rr");
+	else if (ft_strcmp(moves_a[0], "rra") == 0)
+		move = ft_strdup("rrr");
 	moves_a = ft_erase(moves_a, 0, length);
 	moves_b = ft_erase(moves_b, 0, length);
 	result = fill_moves(move, length);
 	if (moves_b[0])
-		result = ft_tabjoin(result, moves_b);
-	result = ft_tabjoin(result, moves_a);
+		result = tabjoin_free(result, moves_b, 1);
+	result = tabjoin_free(result, moves_a, 1);
+	ft_freetab(moves_a);
+	ft_freetab(moves_b);
 	free(move);
 	return (result);
 }

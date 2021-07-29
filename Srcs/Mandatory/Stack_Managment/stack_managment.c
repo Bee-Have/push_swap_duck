@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:47:51 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/21 11:19:10 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 16:50:54 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,18 @@ t_list	*init_stack(long long int *list, int len)
 	}
 	place_id(&stack);
 	return (stack);
+}
+
+void	free_struct(t_list **stack)
+{
+	t_list	*iterator;
+
+	while(*stack)
+	{
+		iterator = *stack;
+		*stack = (*stack)->next;
+		free(iterator);
+		iterator = NULL;
+	}
+	free(*stack);
 }

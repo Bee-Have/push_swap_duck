@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 12:30:29 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/27 16:48:38 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 17:06:09 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char	**calc_order_moves(t_list **stack)
 		final_moves[i] = ft_strdup(move);
 		i++;
 	}
+	free(move);
 	return (final_moves);
 }
 

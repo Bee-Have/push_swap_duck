@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 14:01:11 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/27 17:18:56 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 17:05:50 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,21 @@ char	**fill_moves(char *fill, int length)
 		i++;
 	}
 	return (moves);
+}
+
+char	**tabjoin_free(char **tab1, char **tab2, int freetab)
+{
+	char	**result;
+
+	result = ft_tabjoin(tab1, tab2);
+	if (freetab == 1)
+		ft_freetab(tab1);
+	if (freetab == 2)
+		ft_freetab(tab2);
+	if (freetab == 3)
+	{
+		ft_freetab(tab1);
+		ft_freetab(tab2);
+	}
+	return (result);
 }

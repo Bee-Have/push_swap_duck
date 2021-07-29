@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/27 17:17:07 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 16:51:04 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "../Libs/libft/Includes/libft.h"
 
 t_list	*init_stack(long long int *list, int len);
+void	free_struct(t_list **stack);
 
 void	task_manager(long long int *list, int len);
 int		check_list(long long int *list, int len);
@@ -54,6 +55,7 @@ int		check_order(t_list **stack);
 int		find_node_pos(t_list **stack, char **move, char *denominator, int id);
 char	**calc_order_moves(t_list **stack);
 char	**fill_moves(char *fill, int length);
+char	**tabjoin_free(char **tab1, char **tab2, int freetab);
 
 //ALGO EXECUTOR
 void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions);

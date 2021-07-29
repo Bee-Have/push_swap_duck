@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:14:57 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/27 11:58:28 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 17:04:33 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,17 @@
 void	print_struct(t_list *stack)
 {
 	char	*tmp;
+	char	*tmp_tmp;
 
 	while (stack)
 	{
-		tmp = ft_strdup(ft_itoa(stack->value));
-		tmp = ft_strjoin("[", tmp);
-		tmp = ft_strjoin(tmp, "]");
+		tmp_tmp = ft_itoa(stack->value);
+		tmp = ft_strdup(tmp_tmp);
+		free(tmp_tmp);
+		tmp_tmp = ft_strjoin("[", tmp);
+		free(tmp);
+		tmp = ft_strjoin(tmp_tmp, "]");
+		free(tmp_tmp);
 		write(1, tmp, ft_strlen(tmp));
 		stack = stack->next;
 		free(tmp);
