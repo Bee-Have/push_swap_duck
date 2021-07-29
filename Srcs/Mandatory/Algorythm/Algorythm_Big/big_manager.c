@@ -32,5 +32,6 @@ void	big_manager(t_list **stack_a, t_list **stack_b)
 		printf("list has not been sorted\n");
 		error_message();
 	}
+	print_struct(*stack_a);
 	free(moves);
 }
