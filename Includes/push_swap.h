@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/29 16:51:04 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 18:15:41 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ char	**small_final_moves(t_list **stack);
 
 //ALGO BIG MOVE CALCULATOR
 char	**big_moves_manager(t_list **stack_a, t_list **stack_b);
-char	**big_moves_stack(t_list **stack, int id, char *denominator);
-int		get_best_B_id(t_list **stack, int a_value);
+char	**moves_stack(t_list **stack, int id, char *denominator);
+int		best_B_id(t_list **stack, int a_value);
 char	**big_common_moves(char **moves_a, char **moves_b);
 char	**big_final_moves(t_list **stack);
 
@@ -56,6 +56,7 @@ int		find_node_pos(t_list **stack, char **move, char *denominator, int id);
 char	**calc_order_moves(t_list **stack);
 char	**fill_moves(char *fill, int length);
 char	**tabjoin_free(char **tab1, char **tab2, int freetab);
+void	free_both_moves(char **tab1, char **tab2);
 
 //ALGO EXECUTOR
 void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions);

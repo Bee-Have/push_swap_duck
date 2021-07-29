@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 12:44:04 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/29 18:01:08 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 18:18:02 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,33 @@
 
 char	**big_moves_manager(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*iterator;
+	t_list	*iter;
 	char	**best_moves;
 	char	**moves_a;
 	char	**moves_b;
 	char	**both_moves;
 
-	iterator = *stack_a;
+	iter = *stack_a;
 	best_moves = NULL;
-	while (iterator)
+	while (iter)
 	{
-		moves_b = big_moves_stack(stack_b,
-				get_best_B_id(stack_b, iterator->value), "b");
-		moves_a = big_moves_stack(stack_a, iterator->id, "a");
+		moves_b = moves_stack(stack_b, best_B_id(stack_b, iter->value), "b");
+		moves_a = moves_stack(stack_a, iter->id, "a");
 		both_moves = big_common_moves(moves_a, moves_b);
 		if (!best_moves || ft_tablen((const char **)both_moves)
 			< ft_tablen((const char **)best_moves))
 		{
-			if (best_moves)
-				ft_freetab(best_moves);
+			ft_freetab(best_moves);
 			best_moves = ft_tabdup(both_moves);
 		}
-		ft_freetab(moves_a);
-		ft_freetab(moves_b);
+		free_both_moves(moves_a, moves_b);
 		ft_freetab(both_moves);
-		iterator = iterator->next;
+		iter = iter->next;
 	}
 	return (best_moves);
 }
 
-char	**big_moves_stack(t_list **stack, int id, char *denominator)
+char	**moves_stack(t_list **stack, int id, char *denominator)
 {
 	char	**result;
 	char	*move;
@@ -72,7 +69,7 @@ char	**big_moves_stack(t_list **stack, int id, char *denominator)
 	return (result);
 }
 
-int	get_best_B_id(t_list **stack, int a_value)
+int	best_B_id(t_list **stack, int a_value)
 {
 	t_list	*iterator;
 	int		biggest;
@@ -101,7 +98,7 @@ int	get_best_B_id(t_list **stack, int a_value)
 	return (best_id);
 }
 
-char	**big_common_moves(char **moves_a, char **moves_b)
+char	**big_common_moves(char **a, char **b)
 {
 	char	**result;
 	char	*move;
@@ -109,26 +106,23 @@ char	**big_common_moves(char **moves_a, char **moves_b)
 
 	length = 0;
 	move = NULL;
-	if (!moves_b[0])
-		return (ft_tabdup(moves_a));
-	while (moves_a[length] && moves_b[length]
-		&& ft_strlen(moves_a[length]) == ft_strlen(moves_b[length])
-		&& ft_strcmp(moves_a[length], "pb") == 1)
+	if (!b[0])
+		return (ft_tabdup(a));
+	while (a[length] && b[length] && ft_strcmp(a[length], "pb") == 1
+		&& ft_strlen(a[length]) == ft_strlen(b[length]))
 		length++;
-	if (length == 0 || ft_strlen(moves_a[0]) != ft_strlen(moves_b[0]))
-		return (tabjoin_free(moves_b, moves_a, 0));
-	if (ft_strcmp(moves_a[0], "ra") == 0)
+	if (length == 0 || ft_strlen(a[0]) != ft_strlen(b[0]))
+		return (tabjoin_free(b, a, 0));
+	if (ft_strcmp(a[0], "ra") == 0)
 		move = ft_strdup("rr");
-	else if (ft_strcmp(moves_a[0], "rra") == 0)
+	else if (ft_strcmp(a[0], "rra") == 0)
 		move = ft_strdup("rrr");
-	moves_a = ft_erase(moves_a, 0, length);
-	moves_b = ft_erase(moves_b, 0, length);
+	a = ft_erase(a, 0, length);
+	b = ft_erase(b, 0, length);
 	result = fill_moves(move, length);
-	if (moves_b[0])
-		result = tabjoin_free(result, moves_b, 1);
-	result = tabjoin_free(result, moves_a, 1);
-	ft_freetab(moves_a);
-	ft_freetab(moves_b);
-	free(move);
+	if (b[0])
+		result = tabjoin_free(result, b, 1);
+	result = tabjoin_free(result, a, 1);
+	free_both_moves(a, b);
 	return (result);
 }

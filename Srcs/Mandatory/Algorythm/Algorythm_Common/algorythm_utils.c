@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 14:01:11 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/29 17:05:50 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 18:15:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ char	**fill_moves(char *fill, int length)
 		moves[i] = ft_strdup(fill);
 		i++;
 	}
+	free(fill);
 	return (moves);
 }
 
@@ -72,9 +73,12 @@ char	**tabjoin_free(char **tab1, char **tab2, int freetab)
 	if (freetab == 2)
 		ft_freetab(tab2);
 	if (freetab == 3)
-	{
-		ft_freetab(tab1);
-		ft_freetab(tab2);
-	}
+		free_both_moves(tab1, tab2);
 	return (result);
+}
+
+void	free_both_moves(char **tab1, char **tab2)
+{
+	ft_freetab(tab1);
+	ft_freetab(tab2);
 }
