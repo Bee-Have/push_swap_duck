@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:45:32 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/27 17:17:36 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 15:30:32 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,15 @@ void	task_manager(long long int *list, int len)
 		return ;
 	a = init_stack(list, len);
 	b = NULL;
+	free(list);
 	if (check_order(&a) == 0)
 		return ;
 	if (len > 3)
 		big_manager(&a, &b);
 	else
 		small_manager(&a, &b);
+	free(a);
+	free(b);
 }
 
 int	check_list(long long int *list, int len)
