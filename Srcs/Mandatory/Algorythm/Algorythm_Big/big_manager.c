@@ -31,6 +31,5 @@ void	big_manager(t_list **stack_a, t_list **stack_b)
 	execute_actions(stack_a, stack_b, moves);
 	if (check_order(stack_a) == 1)
 		error_message();
-	print_struct(*stack_a);
 	ft_freetab(moves);
 }

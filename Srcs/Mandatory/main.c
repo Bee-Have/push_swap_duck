@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:45:32 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/29 16:51:37 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/29 19:19:35 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int	main(int ac, char **av)
 	int				iav;
 
 	if (ac < 2)
+	{
+		printf("ac check failed\n");
 		return (0);
+	}
 	if (ac == 2)
 	{
 		av = ft_split(av[1], ' ');
@@ -29,7 +32,10 @@ int	main(int ac, char **av)
 	iav = 1;
 	list = (long long int *)malloc((ac - 1) * sizeof(long long int));
 	if (!list)
+	{
+		printf("malloc pb\n");
 		return (0);
+	}
 	while (iav < ac)
 	{
 		list[iav - 1] = ft_atoi(av[iav]);
@@ -45,18 +51,32 @@ void	task_manager(long long int *list, int len)
 	t_list	*b;
 
 	if (check_list(list, len) == -1)
+	{
+		printf("input issue\n");
 		return ;
+	}
 	a = init_stack(list, len);
 	b = NULL;
 	free(list);
 	if (check_order(&a) == 0)
+	{
+		printf("list already sorted\n");
 		return ;
-	if (len > 3)
+	}
+	if (len > 4)
+	{
+		printf("big\n");
 		big_manager(&a, &b);
+	}
 	else
+	{
+		printf("small\n");
 		small_manager(&a, &b);
+	}
 	free_struct(&a);
 	free_struct(&b);
+	printf("end of program\n");
+	return ;
 }
 
 int	check_list(long long int *list, int len)
