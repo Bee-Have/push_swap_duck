@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 17:18:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/30 16:42:54 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/30 16:48:52 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	small_manager(t_list **stack_a, t_list **stack_b)
 	}
 	if (check_order(stack_a) == 1)
 		error_message();
-	// print_struct(*stack_a);
 	free(moves);
 }
 
