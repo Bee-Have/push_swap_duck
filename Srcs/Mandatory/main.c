@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:45:32 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/30 14:08:54 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/30 15:13:30 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,15 @@ void	task_manager(long long int *list, int len)
 	if (check_order(&a) == 0)
 		return ;
 	if (len > 5)
+	{
+		printf("size > 5\n");
 		big_manager(&a, &b);
+	}
 	else
+	{
+		printf("size < 5\n");
 		small_manager(&a, &b);
+	}
 	free_struct(&a);
 	free_struct(&b);
 	return ;

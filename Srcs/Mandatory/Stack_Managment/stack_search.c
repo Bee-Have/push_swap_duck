@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 15:16:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/27 17:10:02 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/30 15:20:04 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	get_biggest_value(t_list **list)
 int	get_smallest(t_list **list)
 {
 	t_list	*iterator;
-	int		smallest;
+	long long int		smallest;
 
 	smallest = INT_MAX;
 	iterator = *list;

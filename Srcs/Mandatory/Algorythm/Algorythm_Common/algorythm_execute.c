@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:28:33 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/30 14:04:09 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/30 15:24:01 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ void	execute_actions(t_list **stack_a, t_list **stack_b, char **actions)
 	i = 0;
 	while (actions[i])
 	{
+		print_struct(*stack_a);
 		actions_interpretor(actions[i], stack_a, stack_b);
 		ft_putstr(actions[i]);
 		write(1, "\n", 1);
 		i++;
-		// print_both_struct(*stack_a, *stack_b);
+		print_struct(*stack_a);
 	}
 }
 
