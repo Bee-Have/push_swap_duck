@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 17:18:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/29 19:15:27 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/30 14:08:45 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	small_manager(t_list **stack_a, t_list **stack_b)
 	}
 	while ((*stack_b))
 	{
-		small_final_moves(stack_b);
+		moves = small_final_moves(stack_b);
 		execute_actions(stack_a, stack_b, moves);
 		total_moves += ft_tablen((const char **)moves);
 	}
@@ -87,7 +87,7 @@ char	**small_final_moves(t_list **stack)
 	tmp = *stack;
 	if (tmp->next == NULL)
 		moves = ft_add_tab(NULL, "pa");
-	else if (tmp->value > tmp->next->value)
+	else if (tmp->value < tmp->next->value)
 		moves = ft_add_tab(NULL, "sb");
 	else
 		moves = ft_add_tab(NULL, "pa");
