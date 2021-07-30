@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 17:18:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/30 15:28:17 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/30 16:42:54 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ void	small_manager(t_list **stack_a, t_list **stack_b)
 	while (check_order(stack_a) == 1)
 	{
 		if (struct_len(stack_a) > 3)
-		{
-			printf("size > 3\n");
 			moves = get_smallest_value_out(stack_a, "a");
-		}
 		else
 			moves = small_sorting_moves(stack_a);
 		execute_actions(stack_a, stack_b, moves);
@@ -38,6 +35,7 @@ void	small_manager(t_list **stack_a, t_list **stack_b)
 	}
 	if (check_order(stack_a) == 1)
 		error_message();
+	// print_struct(*stack_a);
 	free(moves);
 }
 
@@ -68,16 +66,20 @@ char	**small_sorting_moves(t_list **stack)
 	char	**moves;
 
 	moves = NULL;
-	//problem here
-	//i think first condition needs to be refined for certain cases
-	if ((*stack)->value > (*stack)->next->value)
+	if ((*stack)->value == get_biggest_value(stack)
+		&& (*stack)->next->value == get_node_value(stack, get_smallest(stack)))
+		moves = ft_add_tab(NULL, "ra");
+	else if ((*stack)->value == get_node_value(stack, get_smallest(stack))
+		&& (*stack)->next->value == get_biggest_value(stack))
+		moves = ft_add_tab(NULL, "rra");
+	else if ((*stack)->value > (*stack)->next->value)
 		moves = ft_add_tab(NULL, "sa");
 	else
 	{
 		if ((*stack)->next->value == get_biggest_value(stack))
-			moves = ft_add_tab(NULL, "ra");
-		if ((*stack)->value == get_node_value(stack, get_smallest(stack)))
 			moves = ft_add_tab(NULL, "rra");
+		if ((*stack)->value == get_node_value(stack, get_smallest(stack)))
+			moves = ft_add_tab(NULL, "ra");
 	}
 	return (moves);
 }
