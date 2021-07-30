@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 17:18:41 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/30 16:48:52 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/30 17:19:22 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,17 @@ void	small_manager(t_list **stack_a, t_list **stack_b)
 			moves = small_sorting_moves(stack_a);
 		execute_actions(stack_a, stack_b, moves);
 		total_moves += ft_tablen((const char **)moves);
+		ft_freetab(moves);
 	}
 	while ((*stack_b))
 	{
 		moves = small_final_moves(stack_b);
 		execute_actions(stack_a, stack_b, moves);
 		total_moves += ft_tablen((const char **)moves);
+		ft_freetab(moves);
 	}
 	if (check_order(stack_a) == 1)
 		error_message();
-	free(moves);
 }
 
 char	**get_smallest_value_out(t_list **stack, char *denominator)
@@ -57,6 +58,7 @@ char	**get_smallest_value_out(t_list **stack, char *denominator)
 		i++;
 	}
 	final_moves = ft_add_tab(final_moves, "pb");
+	free(move);
 	return (final_moves);
 }
 
