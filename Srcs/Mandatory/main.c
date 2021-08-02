@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:45:32 by amarini-          #+#    #+#             */
-/*   Updated: 2021/08/02 12:24:46 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/08/02 12:36:06 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int ac, char **av)
 		iav++;
 	}
 	task_manager(av, list, ft_tablen((const char **)av));
+	free(list);
 	ft_freetab(av);
 	return (0);
 }
