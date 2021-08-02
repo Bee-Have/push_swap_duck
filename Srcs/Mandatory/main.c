@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:45:32 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/30 17:28:42 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/07/30 18:22:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,26 @@ int	main(int ac, char **av)
 {
 	long long int	*list;
 	int				iav;
-	int				bad_arg;
 
 	if (ac < 2)
 		return (0);
-	bad_arg = 0;
 	if (ac == 2)
 	{
 		av = ft_split(av[1], ' ');
-		ac = ft_tablen((const char **)av);
-		bad_arg = 1;
 	}
 	iav = 1;
-	list = (long long int *)malloc((ac - 1) * sizeof(long long int));
+	list = (long long int *)malloc((ft_tablen((const char **)av) - 1)
+			* sizeof(long long int));
 	if (!list)
 		return (0);
-	while (iav < ac)
+	while (iav < ft_tablen((const char **)av))
 	{
 		list[iav - 1] = ft_atoi(av[iav]);
 		iav++;
 	}
-	if (bad_arg == 1)
+	if (ac == 2)
 		ft_freetab(av);
-	task_manager(list, ac - 1);
+	task_manager(list, ft_tablen((const char **)av) - 1);
 	return (0);
 }
 
