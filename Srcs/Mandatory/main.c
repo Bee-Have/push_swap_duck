@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:45:32 by amarini-          #+#    #+#             */
-/*   Updated: 2021/08/02 13:34:09 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/08/02 14:02:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	check_input(char **str)
 			if (ft_isdigit(str[row][i]) == 0)
 			{
 				i++;
-				if (ft_isdigit(str[row][i]) == 0)
+				if (ft_isdigit(str[row][i]) == 0 || (i - 2) >= 0)
 					return (1);
 				i--;
 			}
