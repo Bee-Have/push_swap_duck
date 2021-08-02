@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:45:32 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/30 18:22:13 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/08/02 12:24:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,39 +20,40 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	if (ac == 2)
-	{
 		av = ft_split(av[1], ' ');
-	}
-	iav = 1;
-	list = (long long int *)malloc((ft_tablen((const char **)av) - 1)
+	else if (ac > 2)
+		av = ft_erase(av, 0, 1);
+	iav = 0;
+	list = (long long int *)malloc((ft_tablen((const char **)av))
 			* sizeof(long long int));
 	if (!list)
 		return (0);
 	while (iav < ft_tablen((const char **)av))
 	{
-		list[iav - 1] = ft_atoi(av[iav]);
+		list[iav] = ft_atoi(av[iav]);
 		iav++;
 	}
-	if (ac == 2)
-		ft_freetab(av);
-	task_manager(list, ft_tablen((const char **)av) - 1);
+	task_manager(av, list, ft_tablen((const char **)av));
+	ft_freetab(av);
 	return (0);
 }
 
-void	task_manager(long long int *list, int len)
+int	task_manager(char **av, long long int *list, int len)
 {
 	t_list	*a;
 	t_list	*b;
 
+	if (check_input(av) == 1)
+		return (error_message());
 	if (check_list(list, len) == -1)
-		return ;
+		return (-1);
 	a = init_stack(list, len);
 	b = NULL;
 	free(list);
 	if (check_order(&a) == 0)
 	{
 		free_struct(&a);
-		return ;
+		return (0);
 	}
 	if (len > 5)
 		big_manager(&a, &b);
@@ -60,7 +61,28 @@ void	task_manager(long long int *list, int len)
 		small_manager(&a, &b);
 	free_struct(&a);
 	free_struct(&b);
-	return ;
+	return (0);
+}
+
+int	check_input(char **str)
+{
+	int		row;
+	int		i;
+
+	row = 0;
+	i = 0;
+	while (str[row] != NULL)
+	{
+		while (str[row][i] != '\0')
+		{
+			if (ft_isdigit(str[row][i]) == 0)
+				return (1);
+			i++;
+		}
+		i = 0;
+		row++;
+	}
+	return (0);
 }
 
 int	check_list(long long int *list, int len)

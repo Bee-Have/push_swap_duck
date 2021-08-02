@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:11:18 by amarini-          #+#    #+#             */
-/*   Updated: 2021/07/29 18:15:41 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/08/02 12:26:35 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@
 t_list	*init_stack(long long int *list, int len);
 void	free_struct(t_list **stack);
 
-void	task_manager(long long int *list, int len);
+int		task_manager(char **av, long long int *list, int len);
 int		check_list(long long int *list, int len);
+int		check_input(char **str);
 
 void	swap(t_list **stack);
 void	push(t_list **src, t_list **dst);
