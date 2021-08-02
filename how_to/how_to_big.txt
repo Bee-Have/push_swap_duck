@@ -10,7 +10,7 @@ cmd:
 ARG=`ruby -e "puts (1..100).to_a.shuffle.join(' ')"` ; ./push_swap $ARG | wc -l
 
 VALGRIND:
-valgrind --leak-check=full --show-leak-kind=all ./
+valgrind --leak-check=full --show-leak-kinds=all ./
 
 so
 
