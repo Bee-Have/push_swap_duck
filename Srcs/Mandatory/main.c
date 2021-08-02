@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:45:32 by amarini-          #+#    #+#             */
-/*   Updated: 2021/08/02 12:36:06 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/08/02 13:34:09 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int	task_manager(char **av, long long int *list, int len)
 		return (-1);
 	a = init_stack(list, len);
 	b = NULL;
-	free(list);
 	if (check_order(&a) == 0)
 	{
 		free_struct(&a);
@@ -77,7 +76,12 @@ int	check_input(char **str)
 		while (str[row][i] != '\0')
 		{
 			if (ft_isdigit(str[row][i]) == 0)
-				return (1);
+			{
+				i++;
+				if (ft_isdigit(str[row][i]) == 0)
+					return (1);
+				i--;
+			}
 			i++;
 		}
 		i = 0;
